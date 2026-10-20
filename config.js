@@ -3,7 +3,7 @@
    圖片目前直接讀取 emotionplanet.netlify.app 上的原圖。
    之後若把 assets 資料夾放進這個網站，把 IMG_BASE 改成 "" 即可。
    ================================================================ */
-const IMG_BASE = "https://emotionplanet.netlify.app/";
+const IMG_BASE = "";
 
 const CONFIG = {
   home: {
