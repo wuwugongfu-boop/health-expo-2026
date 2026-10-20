@@ -285,6 +285,21 @@ body{background-color:var(--night);background-image:
 .ice-foot{margin-top:24px;display:flex;align-items:center;justify-content:center;gap:18px;background:var(--pi);border-radius:14px;padding:14px 18px}
 .ice-foot p{font-family:var(--font-display);font-size:1.1rem!important;color:#fff;text-align:center;line-height:1.7!important}
 .ice-foot img{width:56px;height:56px;object-fit:contain;flex:none}
+
+/* 平面圖 */
+.fmap{position:relative;border-radius:18px;overflow:hidden;border:2px solid #ffffff22;background:#fff}
+.fmap img{width:100%;display:block}
+.fz{position:absolute;border:2.5px dashed var(--c);background:color-mix(in srgb,var(--c) 16%,transparent);border-radius:12px}
+.fp{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;background:var(--c);color:#14183d;border-radius:999px;padding:3px 12px 3px 3px;box-shadow:0 3px 10px #0005;white-space:nowrap;font-size:.85rem;font-weight:700}
+.fp b{width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center;font-family:var(--font-display);font-size:.95rem}
+.fp.alt{background:#fff;border:2.5px solid var(--c)}
+.fp.alt b{background:var(--c);color:#fff}
+@media (max-width:820px){.fp{padding:0;gap:0}.fp span{display:none}.fp b{width:22px;height:22px;font-size:.8rem}}
+.flegend{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.flegend li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:color-mix(in srgb,#1b2462 78%,transparent);border:2px solid #ffffff22;border-left:6px solid var(--c);border-radius:16px;padding:12px 14px}
+.flegend b{width:30px;height:30px;border-radius:50%;background:var(--c);color:#14183d;display:grid;place-items:center;font-family:var(--font-display)}
+.flegend strong{font-weight:700}
+.flegend p{color:var(--ink-soft);font-size:.9rem;line-height:1.6}
 </style>
 
 </head>
@@ -418,6 +433,25 @@ body{background-color:var(--night);background-image:
       </div>
     </div>
   </section>
+  <section id="expo-map">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">展場平面圖</p><h2>從右上角入口出發，一路走到左邊舞台</h2><p>華山文創園區西1館（A棟）。跟著五站的顏色走，就不會錯過任何一區。</p></div>
+      <div class="fmap">
+        <img src="img/floorplan.jpg" alt="情緒教育展展場平面圖">
+<div class="fz" style="--c:var(--candy-pink);left:74.5%;top:21%;width:19.5%;height:59%"></div><div class="fz" style="--c:var(--candy-violet);left:48.8%;top:21.5%;width:24.6%;height:28%"></div><div class="fz" style="--c:var(--candy-teal);left:44%;top:60%;width:22%;height:23%"></div><div class="fz" style="--c:var(--candy-orange);left:37%;top:19%;width:12%;height:12%"></div><div class="fz" style="--c:var(--candy-orange);left:36.5%;top:73%;width:6.8%;height:9%"></div><div class="fz" style="--c:var(--candy-yellow);left:9%;top:21%;width:22.6%;height:63%"></div><div class="fp alt" style="--c:var(--candy-pink);left:85.5%;top:12%"><b>入</b><span>入口・測驗</span></div><div class="fp " style="--c:var(--candy-pink);left:84%;top:58%"><b>1</b><span>降落｜情緒星球迴廊</span></div><div class="fp alt" style="--c:var(--candy-pink);left:69%;top:87%"><b>★</b><span>角色卡任務</span></div><div class="fp " style="--c:var(--candy-violet);left:61%;top:25%"><b>2</b><span>聽見｜情緒留聲機</span></div><div class="fp " style="--c:var(--candy-teal);left:56%;top:61%"><b>3</b><span>看見｜Wake Up Lab</span></div><div class="fp " style="--c:var(--candy-orange);left:43%;top:25%"><b>4</b><span>留下｜拍照區</span></div><div class="fp " style="--c:var(--candy-orange);left:37%;top:89%"><b>4</b><span>留下｜少觀所計畫</span></div><div class="fp " style="--c:var(--candy-yellow);left:20%;top:52%"><b>5</b><span>動起來｜瑜珈・講座・劇場</span></div>
+      </div>
+      <ol class="flegend">
+        <li style="--c:var(--candy-pink)"><b>入</b><div><strong>入口・測驗區</strong><p>右上角入口進場，先掃描 QR Code 做 16 題人格測驗。</p></div></li>
+        <li style="--c:var(--candy-pink)"><b>1</b><div><strong>降落｜情緒星球迴廊</strong><p>整段彎曲迴廊是第一區，認識四個國度與 24 位居民。</p></div></li>
+        <li style="--c:var(--candy-pink)"><b>★</b><div><strong>角色卡任務</strong><p>迴廊盡頭，挑一張角色卡，送給自己或想陪伴的人。</p></div></li>
+        <li style="--c:var(--candy-violet)"><b>2</b><div><strong>聽見｜情緒留聲機</strong><p>上方區域，忠孝扶青社的電話亭、黑膠故事牆與互動桌。</p></div></li>
+        <li style="--c:var(--candy-teal)"><b>3</b><div><strong>看見｜看見自己，也看見彼此</strong><p>下方區域，Wake Up Lab 的紅線牆、咖啡豆投票與 VR 體驗。</p></div></li>
+        <li style="--c:var(--candy-orange)"><b>4</b><div><strong>留下｜拍照區・少觀所計畫</strong><p>左上方拍照牆留下此刻；下方是美仁社少觀所青少年心理療癒計畫。</p></div></li>
+        <li style="--c:var(--candy-yellow)"><b>5</b><div><strong>動起來｜瑜珈・講座・劇場</strong><p>最左邊舞台區，瑜珈、講座與情緒互動劇場都在這裡。</p></div></li>
+      </ol>
+    </div>
+  </section>
+
 
   <section>
     <div class="wrap">
