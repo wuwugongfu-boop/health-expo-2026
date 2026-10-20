@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="2026 健康幸福博覽會｜國際扶輪 3522 地區。情緒教育展 × 健康家庭日，11/14–15 華山文創園區。">
+<title>2026 健康幸福博覽會</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+/* 版面概念：夜空中的兩座島。首頁是星圖總覽，兩個分頁各自是一座島：
+   情緒教育展＝深藍夜空＋糖果色行星；健康家庭日＝同一片夜空下的暖色園遊會。 */
+:root{
+  --night:#0d1433;        /* 夜空底 */
+  --night-2:#161f4a;      /* 卡片面 */
+  --night-3:#222d63;      /* 浮起面 */
+  --ink:#f3f0ff;          /* 主文字 */
+  --ink-soft:#b9bde6;     /* 次文字 */
+  --line:#34407e;         /* 分隔線 */
+  --candy-pink:#ff5d8f;
+  --candy-yellow:#ffcb3d;
+  --candy-teal:#2fd0bf;
+  --candy-violet:#9b7bff;
+  --candy-orange:#ff8a3d;
+  --accent:var(--candy-yellow);
+  --font-display:"Huninn","jf open 粉圓","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --r:18px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--night);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.75;
+  background-image:
+    radial-gradient(1.2px 1.2px at 12% 18%, #fff8 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 9%, #fff9 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 88% 34%, #fff7 50%, transparent 51%),
+    radial-gradient(1px 1px at 31% 61%, #fff6 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 54% 82%, #fff7 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 90%, #fff6 50%, transparent 51%);
+  background-size:520px 520px;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--night)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--candy-teal);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.3;text-wrap:balance;margin:0}
+p{margin:0}
+
+/* 頂部導覽 */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--night) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-block:10px}
+.brand{font-family:var(--font-display);font-size:1.1rem;color:var(--ink);text-decoration:none;margin-right:auto;white-space:nowrap}
+.brand small{display:block;font-family:var(--font-body);font-size:.72rem;color:var(--ink-soft);letter-spacing:.08em}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:transparent;color:var(--ink-soft);font:inherit;font-size:.95rem;padding:6px 14px;border-radius:999px;cursor:pointer;text-decoration:none}
+.tab[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--night);font-weight:700}
+
+section{padding-block:56px}
+.eyebrow{font-size:.85rem;letter-spacing:.18em;color:var(--accent);font-weight:700}
+.sec-head{display:grid;gap:8px;margin-bottom:28px;max-width:44rem}
+.sec-head h2{font-size:clamp(1.6rem,3.2vw,2.3rem)}
+.sec-head p{color:var(--ink-soft)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--night);font-weight:700;text-decoration:none;padding:10px 20px;border-radius:999px;border:0;font:inherit;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink-soft)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--ink-soft);font-size:.95rem}
+.facts b{color:var(--ink);font-weight:500}
+.pill{display:inline-block;font-size:.8rem;padding:2px 10px;border-radius:999px;background:var(--night-3);color:var(--ink-soft)}
+
+/* 首頁 */
+.hero{padding-block:48px 24px;display:grid;gap:18px;text-align:left}
+.hero .kicker{color:var(--ink-soft);letter-spacing:.12em}
+.hero h1{font-size:clamp(2.4rem,7vw,4.6rem);background:linear-gradient(90deg,var(--candy-orange),var(--candy-yellow) 25%,var(--candy-teal) 50%,var(--candy-violet) 75%,var(--candy-pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .date{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,1.9rem)}
+.hero .tag{font-size:1.05rem;max-width:40rem;color:var(--ink-soft)}
+.islands{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:8px}
+@media (max-width:760px){.islands{grid-template-columns:1fr}}
+.island{display:grid;grid-template-rows:auto 1fr;background:var(--night-2);border-radius:var(--r);overflow:hidden;text-decoration:none;color:var(--ink);border:1px solid var(--line);transition:transform .25s}
+.island:hover{transform:translateY(-4px)}
+.island .shot{aspect-ratio:16/10;max-width:100%;background-size:cover;background-position:center 18%}
+.island .body{padding:20px 22px 24px;display:grid;gap:10px;align-content:start}
+.island h2{font-size:1.7rem}
+.island .where{font-weight:700}
+.island ul{margin:0;padding-left:1.1em;color:var(--ink-soft)}
+.island .go{margin-top:6px;color:var(--accent);font-weight:700}
+.island.expo .go{color:var(--candy-teal)}
+.island.family .go{color:var(--candy-orange)}
+
+.bridge{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:center;background:linear-gradient(135deg,#2a2f6b,#4a2f62);border-radius:var(--r);padding:28px}
+@media (max-width:760px){.bridge{grid-template-columns:1fr}}
+.bridge h2{font-size:clamp(1.4rem,3vw,2rem)}
+.bridge .txt{display:grid;gap:12px}
+.bridge img{border-radius:12px;width:100%}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-weight:700}
+.flow span{background:var(--night);padding:4px 12px;border-radius:999px}
+
+.mapbox{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center}
+@media (max-width:760px){.mapbox{grid-template-columns:1fr}}
+.mapbox svg{width:100%;height:auto;background:var(--night-2);border-radius:var(--r);border:1px solid var(--line)}
+.legend{display:grid;gap:14px}
+.legend div{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.dot{width:16px;height:16px;border-radius:50%;margin-top:6px}
+
+/* 情緒教育展 */
+.p-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:center;padding-block:40px}
+@media (max-width:820px){.p-hero{grid-template-columns:1fr}}
+.p-hero h1{font-size:clamp(2.3rem,6vw,4rem)}
+.p-hero .lead{font-family:var(--font-display);font-size:clamp(1.2rem,2.6vw,1.6rem);color:var(--candy-yellow)}
+.p-hero .txt{display:grid;gap:16px}
+.p-hero img{width:100%;border-radius:14px;box-shadow:0 20px 50px #0008}
+.org{font-size:.9rem;color:var(--ink-soft);display:grid;gap:6px}
+.org b{color:var(--ink);font-weight:500;margin-right:6px}
+
+.stations{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.stations::before{content:"";position:absolute;left:6%;right:6%;top:34px;border-top:2px dashed #ffcb3d88}
+@media (max-width:900px){.stations{grid-template-columns:1fr}.stations::before{display:none}}
+.st{position:relative;background:var(--night-2);border-radius:var(--r);padding:16px 16px 18px;display:grid;gap:6px;border:1px solid var(--line)}
+.st .n{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-display);color:var(--night);font-size:1.1rem}
+.st h3{font-size:1.35rem}
+.st .q{color:var(--ink);font-weight:500}
+.st .who{font-size:.85rem;color:var(--ink-soft)}
+
+.realms{display:grid;gap:22px}
+.realm{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:center;background:var(--night-2);border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.realm:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}
+.realm:nth-child(even) img{order:2}
+@media (max-width:820px){.realm,.realm:nth-child(even){grid-template-columns:1fr}.realm:nth-child(even) img{order:0}}
+.realm img{width:100%;height:100%;object-fit:cover;display:block}
+.realm .txt{padding:18px 22px 22px;display:grid;gap:10px}
+.realm h3{font-size:1.6rem}
+.realm .kw{color:var(--ink-soft);font-size:.9rem;letter-spacing:.08em}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:.85rem;padding:3px 10px;border-radius:999px;background:var(--night-3)}
+
+.partners{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.partners{grid-template-columns:1fr}}
+.card{background:var(--night-2);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:12px;align-content:start}
+.card h3{font-size:1.4rem}
+.card .who{font-size:.85rem;color:var(--ink-soft)}
+.card ul{margin:0;padding-left:1.1em;color:var(--ink-soft)}
+.card ul b{color:var(--ink);font-weight:500}
+.card .btn{justify-self:start;margin-top:4px}
+
+.shao{display:grid;gap:18px}
+.shao img{width:100%;border-radius:14px}
+.shao .nums{display:flex;flex-wrap:wrap;gap:14px}
+.shao .nums div{background:var(--night-2);border-radius:14px;padding:12px 18px;border:1px solid var(--line)}
+.shao .nums b{display:block;font-family:var(--font-display);font-size:1.5rem;color:var(--candy-pink);font-variant-numeric:tabular-nums}
+
+.days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:760px){.days{grid-template-columns:1fr}}
+.day{background:var(--night-2);border-radius:var(--r);border:1px solid var(--line);overflow:hidden}
+.day h3{font-size:1.3rem;padding:14px 20px;background:var(--night-3)}
+.day ol{list-style:none;margin:0;padding:8px 20px 16px}
+.day li{display:grid;grid-template-columns:7.2em 1fr;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.day li:last-child{border-bottom:0}
+.day time{font-variant-numeric:tabular-nums;color:var(--ink-soft)}
+.day .k{font-weight:700}
+.day .k small{display:block;font-weight:400;color:var(--ink-soft);font-size:.85rem}
+.tag-yoga{color:var(--candy-teal)}.tag-talk{color:var(--candy-yellow)}.tag-play{color:var(--candy-pink)}
+.new{font-size:.75rem;background:var(--candy-pink);color:var(--night);padding:1px 8px;border-radius:999px;margin-left:6px;font-weight:700}
+
+.yoga{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media (max-width:760px){.yoga{grid-template-columns:1fr}}
+.yoga .soon{border:2px dashed var(--line);border-radius:var(--r);padding:22px;display:grid;gap:8px;align-content:center;color:var(--ink-soft)}
+
+.wall img{width:100%;border-radius:var(--r)}
+
+/* 健康家庭日 */
+.family{--accent:var(--candy-orange)}
+.family .p-hero .lead{color:var(--candy-orange)}
+.hl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.hl{grid-template-columns:1fr}}
+.hl .card h3{color:var(--candy-yellow)}
+.rules{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none;counter-reset:r}
+@media (max-width:600px){.rules{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rules li{background:var(--night-3);border-radius:12px;padding:10px;font-size:.9rem;counter-increment:r}
+.rules li::before{content:counter(r);display:block;font-family:var(--font-display);color:var(--candy-orange);font-size:1.2rem}
+.games{display:flex;flex-wrap:wrap;gap:8px}
+.games span{background:var(--night-3);padding:6px 14px;border-radius:999px}
+.tbl{overflow-x:auto;border-radius:var(--r);border:1px solid var(--line)}
+.tbl table{border-collapse:collapse;width:100%;min-width:420px}
+.tbl th,.tbl td{text-align:left;padding:10px 16px;border-bottom:1px solid var(--line)}
+.tbl th{background:var(--night-3);font-weight:500}
+.tbl td:first-child{font-variant-numeric:tabular-nums;color:var(--ink-soft);white-space:nowrap}
+.tbl tr:last-child td{border-bottom:0}
+.tickets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:700px){.tickets{grid-template-columns:1fr}}
+.ticket{background:var(--night-2);border:2px dashed var(--candy-orange);border-radius:14px;padding:18px;display:grid;gap:4px}
+.ticket b{font-family:var(--font-display);font-size:1.8rem;color:var(--candy-yellow);font-variant-numeric:tabular-nums}
+
+.clubs{display:grid;gap:14px}
+.clubs div{display:grid;grid-template-columns:5.5em 1fr;gap:10px}
+.clubs dt{font-weight:700;color:var(--accent)}
+.clubs dd{margin:0;color:var(--ink-soft)}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--ink-soft);font-size:.9rem}
+footer .wrap{display:grid;gap:6px}
+
+/* ===== 海報風格層 ===== */
+body{background-color:var(--night);background-image:
+ radial-gradient(1.2px 1.2px at 12% 18%, #fff9 50%, transparent 51%),
+ radial-gradient(1px 1px at 72% 9%, #fffa 50%, transparent 51%),
+ radial-gradient(1.6px 1.6px at 88% 34%, #fff8 50%, transparent 51%),
+ radial-gradient(1px 1px at 31% 61%, #fff7 50%, transparent 51%),
+ radial-gradient(1.3px 1.3px at 54% 82%, #fff8 50%, transparent 51%),
+ radial-gradient(2px 2px at 6% 90%, #ffe9a8 50%, transparent 51%),
+ linear-gradient(180deg,#0b1230 0%,#1a1f5c 55%,#3a2a78 100%);
+ background-size:520px 520px,520px 520px,520px 520px,520px 520px,520px 520px,520px 520px,100% 100%;background-attachment:scroll,scroll,scroll,scroll,scroll,scroll,fixed}
+.candy{font-family:var(--font-display);font-weight:400;line-height:1.15;letter-spacing:.02em;display:flex;flex-wrap:wrap;gap:0 .04em}
+.candy span{display:inline-block;color:var(--c);
+ text-shadow:0 .04em 0 color-mix(in srgb,var(--c) 60%,#000),0 .07em 0 color-mix(in srgb,var(--c) 45%,#000),
+ .06em 0 0 #fff,-.06em 0 0 #fff,0 .06em 0 #fff,0 -.06em 0 #fff,.045em .045em 0 #fff,-.045em .045em 0 #fff,.045em -.045em 0 #fff,-.045em -.045em 0 #fff,
+ 0 .14em .18em #0007;transform:rotate(var(--r,0deg))}
+.candy span:nth-child(1){--c:#ff6a3d;--r:-3deg}.candy span:nth-child(2){--c:#ffbf2e;--r:2deg}.candy span:nth-child(3){--c:#20c6b6;--r:-2deg}
+.candy span:nth-child(4){--c:#7a5cff;--r:3deg}.candy span:nth-child(5){--c:#ff4f8b;--r:-2deg}.candy span:nth-child(6){--c:#3fa7ff;--r:2deg}
+.candy span:nth-child(7){--c:#ff6a3d;--r:-1deg}.candy span:nth-child(8){--c:#9be15d;--r:2deg}
+.sticker{display:inline-block;background:#fff;color:#1b2259;font-family:var(--font-display);padding:4px 16px;border-radius:999px;box-shadow:0 3px 0 #c9cdf5}
+.clouds{height:90px;margin-top:-10px;background:
+ radial-gradient(60px 46px at 6% 100%,#f4e9ff 98%,transparent),radial-gradient(90px 60px at 18% 100%,#e6dcff 98%,transparent),
+ radial-gradient(70px 50px at 32% 100%,#ffe3f1 98%,transparent),radial-gradient(110px 70px at 48% 100%,#efe6ff 98%,transparent),
+ radial-gradient(80px 55px at 64% 100%,#ffe6f3 98%,transparent),radial-gradient(100px 66px at 80% 100%,#e8ddff 98%,transparent),
+ radial-gradient(70px 50px at 95% 100%,#f8eaff 98%,transparent);opacity:.9}
+.island,.card,.st,.realm,.day,.ticket{background:color-mix(in srgb,#1b2462 78%,transparent)!important;backdrop-filter:blur(6px);border:2px solid #ffffff22!important;border-radius:24px!important}
+.st{padding:0 0 18px!important;overflow:hidden}
+.st img{width:min(100%,200px);aspect-ratio:4/3;object-fit:cover;display:block;margin:14px auto 6px;border-radius:16px}
+.st>*:not(img){margin-inline:16px}
+.st .n{position:relative;box-shadow:0 0 0 3px #fff}
+.stations::before{display:none}
+.p-hero h1.candy{font-size:clamp(2.6rem,8vw,5rem)}
+.hero h1.candy{font-size:clamp(2.4rem,7.5vw,4.8rem);background:none;-webkit-background-clip:initial;background-clip:initial;color:inherit}
+
+/* 起承轉合 */
+.kstc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.kstc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.kstc{grid-template-columns:1fr}}
+.kstc li{background:color-mix(in srgb,#1b2462 78%,transparent);border:2px solid #ffffff22;border-radius:24px;padding:20px;display:grid;gap:10px;align-content:start}
+.k4{font-family:var(--font-display);font-size:2.6rem;line-height:1;color:var(--c);text-shadow:.05em 0 0 #fff,-.05em 0 0 #fff,0 .05em 0 #fff,0 -.05em 0 #fff,0 .1em .14em #0006}
+.kstc h3{font-size:1.2rem}
+.kstc p{color:var(--ink-soft);font-size:.95rem}
+/* 冰山劇場：紙張拼貼 */
+.paper{--pp:#f3eadb;--pi:#2a3554;--pb:#3b5f8f;--pr:#b4483a;background:var(--pp);color:var(--pi);border-radius:20px;padding:28px clamp(16px,3vw,36px);
+ background-image:radial-gradient(#0000000a 1px,transparent 1px);background-size:6px 6px;box-shadow:0 20px 50px #0007}
+.paper .credit{font-size:.85rem;color:#6b6252;margin-bottom:18px}
+.ice-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:900px){.ice-grid{grid-template-columns:1fr}}
+.ice-grid p{font-size:.95rem;line-height:1.9}
+.ice-l,.ice-m,.ice-r{display:grid;gap:12px;align-content:start}
+.tape{justify-self:start;background:#e6d2ad;padding:4px 14px;font-family:var(--font-display);transform:rotate(-2deg);box-shadow:0 2px 0 #0001}
+.ice-title{width:100%;max-width:340px;mix-blend-mode:multiply}
+.ice-lead{font-family:var(--font-display);font-size:1.25rem!important;color:var(--pb)}
+.pics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pics img{width:100%;aspect-ratio:4/3;object-fit:cover;border:6px solid #fff;box-shadow:0 4px 10px #0003;transform:rotate(-2deg)}
+.pics img+img{transform:rotate(2deg)}
+.banner{background:var(--pb);color:#fff;font-family:var(--font-display);font-size:1.5rem!important;line-height:1.4!important;padding:12px 18px;border-radius:6px;transform:rotate(-2deg);justify-self:start}
+.berg{display:grid;grid-template-columns:42% 1fr;gap:10px;align-items:start}
+.berg>img{width:100%;mix-blend-mode:multiply;border-radius:10px}
+.layers{display:grid;gap:14px}
+.layers div{display:grid;gap:2px;position:relative}
+.lv{justify-self:start;background:var(--pb);color:#fff;font-size:.8rem;padding:1px 10px;border-radius:999px}
+.lv.deep{background:var(--pr)}
+.layers b{font-family:var(--font-display);font-weight:400}
+.layers small{font-size:.85rem;color:#5a5446}
+.bean{width:48px;position:absolute;right:-6px;top:-10px;mix-blend-mode:multiply}
+.ice-note{font-family:var(--font-display);color:var(--pb)}
+.qs{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.qs li{background:#efe0c4;border-radius:10px;padding:10px 14px;display:flex;gap:12px;align-items:center;font-family:var(--font-display)}
+.qs span{flex:none;width:34px;height:34px;border-radius:50%;background:var(--pr);color:#fff;display:grid;place-items:center;font-size:.9rem}
+.qs li:nth-child(2) span{background:var(--pb)}
+.hand{font-family:var(--font-display);background:#fff8;border-radius:10px;padding:10px 14px}
+.bean.big{position:static;width:90px;justify-self:end}
+.ice-foot{margin-top:20px;text-align:center;font-family:var(--font-display);font-size:1.15rem;color:#fff;background:var(--pi);border-radius:10px;padding:12px}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" data-go="home">2026 健康幸福博覽會<small>國際扶輪 3522 地區</small></a>
+    <nav class="tabs" aria-label="分頁">
+      <a class="tab" href="#home" data-go="home">首頁</a>
+      <a class="tab" href="#expo" data-go="expo">情緒教育展</a>
+      <a class="tab" href="#family" data-go="family">健康家庭日</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ 首頁 ============ -->
+<main id="view-home" data-view="home">
+  <div class="wrap">
+    <section class="hero">
+      <p class="kicker">國際扶輪 3522 地區　主辦</p>
+      <p><span class="sticker">2026</span></p><h1 class="candy" aria-label="健康幸福博覽會"><span aria-hidden="true">健</span><span aria-hidden="true">康</span><span aria-hidden="true">幸</span><span aria-hidden="true">福</span><span aria-hidden="true">博</span><span aria-hidden="true">覽</span><span aria-hidden="true">會</span></h1>
+      <p class="date">11 月 14 日（六）– 15 日（日）・華山文創園區</p>
+      <p class="tag">一場室內的情緒教育展，一場戶外的健康家庭日。兩個獨立但互相串聯的服務計畫，邀請扶輪社友、寶眷與所有民眾一起參加。<b style="color:var(--ink)">免費入場。</b></p>
+    </section>
+    <div class="clouds" aria-hidden="true"></div>
+
+    <div class="islands">
+      <a class="island expo" href="#expo" data-go="expo">
+        <div class="shot" style="background-image:url(img/poster-expo.jpg)" role="img" aria-label="情緒教育展海報"></div>
+        <div class="body">
+          <span class="pill">室內展覽</span>
+          <h2>情緒教育展</h2>
+          <p class="where">西1館（A棟）・10:00–18:00（17:30 停止入場）</p>
+          <ul>
+            <li>從靜到動，五站旅程遇見自己的情緒</li>
+            <li>16 題測驗，找到你在情緒星球的角色</li>
+            <li>瑜珈、講座與情緒互動劇場，全部開放參加</li>
+          </ul>
+          <span class="go">進入情緒教育展 →</span>
+        </div>
+      </a>
+      <a class="island family" href="#family" data-go="family">
+        <div class="shot" style="background-image:url(img/poster-family.jpg)" role="img" aria-label="健康家庭日海報"></div>
+        <div class="body">
+          <span class="pill">戶外活動</span>
+          <h2>健康家庭日</h2>
+          <p class="where">北側綠地 B 區（荷花池旁）・10:00–18:00（17:30 停止入場）</p>
+          <ul>
+            <li>寵物競走大賽：萌寵出動，留下可愛回憶</li>
+            <li>親子互動遊戲：丟沙包、套圈圈、投籃高手</li>
+            <li>特色園遊會：多樣攤位，逛一天都精彩</li>
+          </ul>
+          <span class="go">進入健康家庭日 →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="bridge">
+        <div class="txt">
+          <p class="eyebrow">兩個活動，一份心意</p>
+          <h2>在家庭日玩一場，就是在接住一個孩子</h2>
+          <p>健康家庭日的活動結餘，將全額捐贈「台北少年觀護所收容人心理治療服務計畫」。這個計畫就展示在情緒教育展的「被接住的心，會找到回家的路」展牆上。</p>
+          <div class="flow"><span>家庭日玩遊戲</span>→<span>結餘捐出</span>→<span>少觀所孩子的心理陪伴</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">怎麼走</p><h2>兩個場地都在華山，步行幾分鐘</h2></div>
+      <div class="mapbox">
+        <svg viewBox="0 0 520 340" role="img" aria-label="華山園區場地示意圖">
+          <rect x="0" y="0" width="520" height="340" fill="#161f4a"/>
+          <rect x="0" y="22" width="520" height="34" fill="#2a3466"/>
+          <text x="260" y="44" fill="#b9bde6" font-size="14" text-anchor="middle">市民大道</text>
+          <path d="M60 70 L470 70 L470 175 L60 175 Z" fill="#1d3a3a"/>
+          <text x="400" y="100" fill="#8fd4c4" font-size="13">中央藝文公園</text>
+          <ellipse cx="300" cy="118" rx="38" ry="18" fill="#2f6f9a"/>
+          <text x="300" y="123" fill="#e6f4ff" font-size="12" text-anchor="middle">荷花池</text>
+          <path d="M250 140 L300 140 L318 190 L262 196 Z" fill="#ff8a3d" opacity=".9"/>
+          <text x="284" y="174" fill="#0d1433" font-size="15" text-anchor="middle" font-weight="700">B 區</text>
+          <rect x="70" y="220" width="150" height="70" rx="6" fill="#2fd0bf" opacity=".9"/>
+          <text x="145" y="250" fill="#0d1433" font-size="15" text-anchor="middle" font-weight="700">西1館（A棟）</text>
+          <text x="145" y="272" fill="#0d1433" font-size="12" text-anchor="middle">情緒教育展</text>
+          <rect x="240" y="225" width="90" height="55" rx="6" fill="#2a3466"/>
+          <text x="285" y="257" fill="#b9bde6" font-size="12" text-anchor="middle">紅磚六合院</text>
+          <path d="M220 240 C 245 215, 255 205, 268 196" fill="none" stroke="#ffcb3d" stroke-width="2.5" stroke-dasharray="6 6"/>
+          <text x="20" y="325" fill="#b9bde6" font-size="11">示意圖，非實際比例</text>
+        </svg>
+        <div class="legend">
+          <div><span class="dot" style="background:var(--candy-teal)"></span><p><b>情緒教育展</b>　華山文創園區　西1館（A棟）</p></div>
+          <div><span class="dot" style="background:var(--candy-orange)"></span><p><b>健康家庭日</b>　北側綠地 B 區（荷花池旁）</p></div>
+          <p style="color:var(--ink-soft)">地址：臺北市中正區八德路一段 1 號</p>
+          <a class="btn ghost" href="https://maps.app.goo.gl/zSAB8f4xo8hL283p7" target="_blank" rel="noopener">在地圖上開啟</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ 情緒教育展 ============ -->
+<main id="view-expo" data-view="expo" hidden>
+  <div class="wrap">
+    <div class="p-hero">
+      <div class="txt">
+        <p class="eyebrow">健康幸福博覽會・室內展覽</p>
+        <h1 class="candy" aria-label="情緒教育展"><span aria-hidden="true">情</span><span aria-hidden="true">緒</span><span aria-hidden="true">教</span><span aria-hidden="true">育</span><span aria-hidden="true">展</span></h1>
+        <p class="lead">從靜到動，遇見自己的情緒</p>
+        <div class="facts"><span><b>11/14（六）– 11/15（日）</b></span><span><b>10:00–18:00</b>　17:30 停止入場</span><span>華山文創園區　<b>西1館（A棟）</b></span><span>免費入場</span></div>
+        <p style="color:var(--ink-soft);max-width:38rem">我們每天都在感受情緒，卻很少好好認識它。這趟旅程從安靜的測驗開始，聽見別人的故事、看見塑造自己的經歷，最後在瑜珈的伸展與呼吸裡，覺察身體裡的情緒。</p>
+        <p style="font-family:var(--font-display);font-size:1.15rem">希望你離開時，能比進來時更認識、也更接納真實的自己。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="#expo-schedule" data-scroll="expo-schedule">看活動時程</a><a class="btn ghost" href="https://emotion-dna--wuwugongfu.replit.app/" target="_blank" rel="noopener">先來做測驗</a></div>
+      </div>
+      <img src="img/poster-expo.jpg" alt="情緒教育展海報">
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">五站旅程</p><h2>每一站，問自己一個問題</h2><p>五個問題連起來，就是這個展想說的事：接受當下的自己。</p></div>
+      <div class="stations">
+        <div class="st"><img src="img/isl-1.jpg" alt=""><span class="n" style="background:var(--candy-pink)">1</span><h3>降落</h3><p class="q">認識此刻的自己</p><p class="who">情緒星球　人格測驗</p></div>
+        <div class="st"><img src="img/isl-2.jpg" alt=""><span class="n" style="background:var(--candy-violet)">2</span><h3>聽見</h3><p class="q">說出心事，聽見故事</p><p class="who">忠孝扶青社　情緒留聲機</p></div>
+        <div class="st"><img src="img/isl-3.jpg" alt=""><span class="n" style="background:var(--candy-teal)">3</span><h3>看見</h3><p class="q">是什麼，塑造了今天的你</p><p class="who">Wake Up Lab　VR 情緒體驗</p></div>
+        <div class="st"><img src="img/isl-4.jpg" alt=""><span class="n" style="background:var(--candy-orange)">4</span><h3>留下</h3><p class="q">為迷途的孩子，留下持續的影響</p><p class="who">拍照牆・少觀所服務計畫</p></div>
+        <div class="st"><img src="img/isl-5.jpg" alt=""><span class="n" style="background:var(--candy-yellow)">5</span><h3>動起來</h3><p class="q">用身體內觀感受，釋放情緒</p><p class="who">瑜珈・講座・情緒互動劇場</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">第一站｜情緒星球</p><h2>神話大陸上的四個國度</h2><p>16 個小問題，從共感、孤獨、行動、壓抑、理想、情緒強度六個方向，找到此刻最接近你的角色。你的星球會移動，每隔一段時間回來測，都是和當下的自己重新打招呼。</p></div>
+      <div class="realms">
+        <article class="realm"><img src="img/fire.jpg" alt="火之國度展牆"><div class="txt"><h3 style="color:var(--candy-orange)">火之國度</h3><p class="kw">燃燒之境・行動　反抗　重生　熱血</p><p>情緒來時，第一個反應是動起來。像火一樣來得快、燒得旺，能照亮別人，也記得讓自己偶爾休息。</p><div class="chips"><span>赤焰革命家</span><span>星火行動者</span><span>風暴開拓者</span><span>熾陽領航者</span><span>暗焰鬥士</span><span>灰燼重生者</span><a class="btn ghost" style="justify-self:start" href="realm.html?r=fire">認識六位居民 →</a></div></div></article>
+        <article class="realm"><img src="img/moon.jpg" alt="月之國度展牆"><div class="txt"><h3 style="color:var(--candy-violet)">月之國度</h3><p class="kw">靜謐之海・共感　敏感　內省　溫柔</p><p>安靜到可以聽見別人心裡的聲音。你的敏感不是脆弱，是一種天賦。</p><div class="chips"><span>月光觀察者</span><span>玻璃心收藏家</span><span>孤島守望者</span><span>星塵詩人</span><span>靜夜療癒師</span><span>夢境旅人</span><a class="btn ghost" style="justify-self:start" href="realm.html?r=moon">認識六位居民 →</a></div></div></article>
+        <article class="realm"><img src="img/sea.jpg" alt="海之國度展牆"><div class="txt"><h3 style="color:var(--candy-teal)">海之國度</h3><p class="kw">深沉之淵・思辨　孤獨　沉澱　深沉</p><p>情緒來了不急著說出口，而是沉下去想「為什麼」。沉澱是你的力量，浮上來換口氣也是勇敢。</p><div class="chips"><span>深海沉思者</span><span>靜默解析者</span><span>潮汐記憶者</span><span>夜航者</span><span>沉沒理想家</span><span>迷霧哲學家</span><a class="btn ghost" style="justify-self:start" href="realm.html?r=sea">認識六位居民 →</a></div></div></article>
+        <article class="realm"><img src="img/light.jpg" alt="光之國度展牆"><div class="txt"><h3 style="color:var(--candy-yellow)">光之國度</h3><p class="kw">純白之境・希望　連結　治癒　光明</p><p>相信再黑的夜也會有黎明，常常是替大家打氣的那個人。你不需要永遠發光，偶爾暗下來，也仍然是你。</p><div class="chips"><span>晨光旅人</span><span>希望播種者</span><span>雲端築夢師</span><span>靈魂連結者</span><span>純白治癒者</span><span>黎明覺醒者</span><a class="btn ghost" style="justify-self:start" href="realm.html?r=light">認識六位居民 →</a></div></div></article>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px"><a class="btn" href="planet.html">進入神話大陸地圖 →</a><a class="btn ghost" href="https://emotion-dna--wuwugongfu.replit.app/" target="_blank" rel="noopener">開始人格測驗</a></div>
+      <p style="margin-top:20px;color:var(--ink-soft)">展場內有「角色卡任務」：每走完一站，就可以多挑一張角色卡，送給自己，也送給你想陪伴的人。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">合作展區</p><h2>一起把情緒說出來</h2></div>
+      <div class="partners">
+        <div class="card">
+          <p class="who">第二站｜國際扶輪 3522 地區忠孝扶青社</p>
+          <h3>情緒留聲機</h3>
+          <p style="font-family:var(--font-display);color:var(--candy-violet)">心裡的聲音，值得被聽見。</p>
+          <ul><li><b>黑膠故事牆</b>　拍照、感應、聽故事</li><li><b>情緒儀表板</b>　選貼紙、找位置、貼上去</li><li><b>情緒留聲機</b>　拿起電話，說出心事</li><li><b>三項手作</b>　情緒畫布、情緒明信片、情緒香水</li></ul>
+          <a class="btn" href="https://emotions-on-air-exhibition.viviannehsu19970129.chatgpt.site" target="_blank" rel="noopener">看情緒留聲機完整介紹 →</a>
+        </div>
+        <div class="card">
+          <p class="who">第三站｜Wake Up Lab 沉浸式情緒策展</p>
+          <h3>看見自己，也看見彼此</h3>
+          <img src="img/beans.jpg" alt="Wake Up Lab 情緒咖啡豆角色" style="border-radius:12px;background:#fff">
+          <ul><li><b>是什麼塑造今天的你</b>　拿起紅線，牽起你的故事與關係</li><li><b>你可以是任何樣子</b>　投下一顆咖啡豆</li><li><b>VR 情緒體驗</b>　約 3 分鐘，坐著走進熟悉的日常</li><li><b>情緒處方籤</b>　為現在的自己，開一張處方</li><li><b>原來你是這樣想</b>　親子互動，交換彼此的答案</li></ul>
+        </div>
+        <div class="card">
+          <p class="who">第五站｜Inside Yoga Taipei 與講師群</p>
+          <h3>瑜珈・講座・劇場</h3>
+          <p style="font-family:var(--font-display);color:var(--candy-yellow)">動過之後靜下來，你會更清楚自己的樣子。</p>
+          <ul><li><b>瑜珈</b>　基礎瑜伽與內觀流瑜珈，每場 60 分鐘</li><li><b>講座</b>　傑立高、劉宗憲醫師</li><li><b>情緒互動劇場</b>　Wake Up Lab × 凌晨工作室《走出，冰山之下》</li></ul>
+          <a class="btn ghost" href="#expo-yoga" data-scroll="expo-yoga">看瑜珈場次 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap shao">
+      <div class="sec-head"><p class="eyebrow">第四站｜留下</p><h2>被接住的心，會找到回家的路</h2><p>台北美仁扶輪社 × 法務部矯正署臺北少年觀護所｜青少年心理療癒計畫</p></div>
+      <ol class="kstc">
+        <li><span class="k4" style="--c:var(--candy-pink)">起</span><h3>每一次衝動背後，都有一顆受傷的心</h3><p>在土城的臺北少年觀護所裡，住著一群暫時迷了路的孩子。他們說不出口的委屈、沒有地方放的憤怒，常常被誤解成叛逆。行為只是表面，情緒才是線索。</p></li>
+        <li><span class="k4" style="--c:var(--candy-yellow)">承</span><h3>先傾聽，再出發</h3><p>2020 年起，美仁扶輪社的社友走進觀護所，一次又一次坐下來，好好聽孩子說話。我們聽見三個最深的需要：讓情緒有出口、讓關係重新接起來、讓孩子相信自己還能回到校園與社會。</p></li>
+        <li><span class="k4" style="--c:var(--candy-teal)">轉</span><h3>用療癒，取代懲罰</h3><p>我們選了一條比較溫柔的路：六堂團體課程，從團隊合作、自我控制到情緒管理與建立自信，再加上一對一的心理陪伴。這份心意跨越國界，臺灣、日本與德國的扶輪夥伴一起撐起守護。</p></li>
+        <li><span class="k4" style="--c:var(--candy-violet)">合</span><h3>讓善意，長成一片森林</h3><p>療癒不是上完幾堂課就結束，而是種下一顆種子。孩子學會溫柔對待自己，也更懂得溫柔對待別人。每一顆被好好接住的心，將來也可能去接住另一顆心。</p></li>
+      </ol>
+      <div class="nums">
+        <div><b>每年約 1,200 人次</b>受惠</div>
+        <div><b>38,000 美元</b>國內外扶輪夥伴共同支持</div>
+        <div><b>臺、日、德</b>跨越國界的善意</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="paper">
+        <p class="credit">Wake Up Lab 情緒體驗設計團隊 × 凌晨工作室 原創互動劇場　｜　11/15（日）舞台演出</p>
+        <div class="ice-grid">
+          <div class="ice-l">
+            <span class="tape">我們想透過這齣戲說什麼？</span>
+            <img class="ice-title" src="img/ice-title.jpg" alt="走出，冰山之下">
+            <p class="ice-lead">當我們不急著判斷，<br>才有機會看見彼此。</p>
+            <p>一座故障的電梯，讓一個準備離家的女孩，和一位急著接女兒的媽媽，暫時停了下來。</p>
+            <p>從爭執到傾聽，她們開始發現：自己說出口的，並不是心裡的全部。</p>
+            <p>這齣戲想邀請你，看見情緒背後的心事，也為自己的感受，留下一點說話的空間。</p>
+            <div class="pics"><img src="img/ice-photo1.jpg" alt="劇照"><img src="img/ice-photo3.jpg" alt="演出現場"></div>
+          </div>
+          <div class="ice-m">
+            <p class="banner">你看見的，<br>不一定是全部。</p>
+            <div class="berg">
+              <img src="img/ice-berg.jpg" alt="冰山">
+              <div class="layers">
+                <div><span class="lv">水面上</span><b>我們看見的反應</b><small>提高音量、反覆追問、不再回應、轉身離開。</small></div>
+                <div><span class="lv">水面下</span><b>可能還有的感受</b><small>害怕、委屈、孤單、疲憊、思念。</small><img class="bean" src="img/bean-blue.jpg" alt=""></div>
+                <div><span class="lv deep">更深處</span><b>可能在意的需要</b><small>被理解、被尊重、有選擇的空間，或只是希望有人願意陪一下。</small><img class="bean" src="img/bean-green.jpg" alt=""></div>
+              </div>
+            </div>
+            <p class="ice-note">這些不是替別人下的結論。真正的理解，還需要聽對方說。</p>
+          </div>
+          <div class="ice-r">
+            <span class="tape">把故事帶回自己</span>
+            <p class="ice-lead">如果有人願意好好聽⋯⋯</p>
+            <ol class="qs">
+              <li><span>01</span>你最希望別人理解你什麼？</li>
+              <li><span>02</span>有哪一句話，你還沒準備好說？</li>
+              <li><span>03</span>下一次對話，你想試著怎麼開始？</li>
+            </ol>
+            <p>不必現在回答，也不必告訴任何人。但也許，你可以從今天開始，先練習對自己誠實一點。</p>
+            <p class="hand">理解，可以從一句話開始：<br>「你希望我先聽你說，還是一起想辦法？」</p>
+            <img class="bean big" src="img/bean-red.jpg" alt="">
+          </div>
+        </div>
+        <p class="ice-foot">每一種情緒，都值得被看見。每一個人，也都可以有自己的界線。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="expo-schedule">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">活動時程</p><h2>兩天的靜心時光</h2><p>所有場次都在展場左側課程區，開放所有人參加。</p></div>
+      <div class="days">
+        <div class="day"><h3>11 月 14 日（六）</h3><ol>
+          <li><time>10:00</time><span class="k tag-play">開幕式</span></li>
+          <li><time>11:00–12:00</time><span class="k tag-yoga">瑜珈</span></li>
+          <li><time>13:00–14:00</time><span class="k tag-talk">傑立高<small>傑立高 JellyGO｜東杰生醫</small></span></li>
+          <li><time>14:00–15:00</time><span class="k tag-talk">劉宗憲醫師<small>專題講座</small></span></li>
+          <li><time>15:10–17:30</time><span class="k tag-yoga">瑜珈<small>連續兩場</small></span></li>
+        </ol></div>
+        <div class="day"><h3>11 月 15 日（日）</h3><ol>
+          <li><time>09:00–10:00</time><span class="k tag-yoga">瑜珈<span class="new">加場</span></span></li>
+          <li><time>10:00–11:00</time><span class="k tag-yoga">瑜珈</span></li>
+          <li><time>11:00–12:00</time><span class="k tag-play">情緒互動劇場<small>《走出，冰山之下》</small></span></li>
+          <li><time>13:00–14:00</time><span class="k tag-play">情緒互動劇場<small>《走出，冰山之下》</small></span></li>
+          <li><time>14:00–15:00</time><span class="k tag-talk">傑立高<small>傑立高 JellyGO｜東杰生醫</small></span></li>
+          <li><time>15:10–17:30</time><span class="k tag-yoga">瑜珈<small>連續兩場</small></span></li>
+        </ol></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expo-yoga">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">瑜珈專區</p><h2>在伸展與呼吸裡，覺察情緒</h2><p>由 Inside Yoga Taipei 帶領。內觀流瑜珈結合瑜珈、音樂與呼吸，讓動作跟著音樂流動，從身體開始聽見自己。</p></div>
+      <div class="yoga">
+        <div class="card">
+          <h3>場次須知</h3>
+          <ul>
+            <li><b>每場 60 分鐘</b>，每場限 30 人</li>
+            <li><b>現場提供瑜珈墊</b>，請穿著方便活動的衣服</li>
+            <li><b>課程內容</b>：基礎瑜伽、內觀流瑜珈，初學者也能參加</li>
+            <li><b>兩天共 7 場</b>，11/15 上午 9:00 加開一場</li>
+          </ul>
+          <a class="btn ghost" href="https://insideflowtw.com/" target="_blank" rel="noopener">認識 Inside Yoga Taipei →</a>
+        </div>
+        <div class="soon">
+          <h3 style="color:var(--ink)">更多瑜珈內容陸續公布</h3>
+          <p>授課老師、各場主題與報名方式，將在這裡更新。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap wall"><img src="img/wall.jpg" alt="每顆星球，都值得被溫柔接住　拍照牆"></div>
+    <div class="wrap" style="margin-top:28px">
+      <dl class="clubs">
+        <div><dt>指導單位</dt><dd>衛生福利部</dd></div>
+        <div><dt>主辦</dt><dd>敦化社、安和社、同德社、同慶社、美仁社、同曜社、星宇社、e東網路社、東欣社、東昇社、忠躍社</dd></div>
+        <div><dt>協辦</dt><dd>東區社、仁愛社、松仁社、大仁社、士林社、璽愛社、安欣衛星社、大屯山社、新中區社、忠孝社、忠山社、環球社、同領社、汐止社、文湖社、內湖社、東華社、東聖社</dd></div>
+        <div><dt>扶青協辦</dt><dd>松智扶青社、七星扶青社、忠孝扶青社、忠山扶青社、環球扶青社、同慶扶青社、滬尾扶青社、文湖扶青社、松仁扶青社</dd></div>
+        <div><dt>贊助</dt><dd>滋立燕窩 等</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<!-- ============ 健康家庭日 ============ -->
+<main id="view-family" data-view="family" class="family" hidden>
+  <div class="wrap">
+    <div class="p-hero">
+      <div class="txt">
+        <p class="eyebrow">健康幸福博覽會・戶外活動</p>
+        <h1 class="candy" aria-label="健康家庭日"><span aria-hidden="true">健</span><span aria-hidden="true">康</span><span aria-hidden="true">家</span><span aria-hidden="true">庭</span><span aria-hidden="true">日</span></h1>
+        <p class="lead">一起走出戶外，健健康康、快快樂樂！</p>
+        <div class="facts"><span><b>11/14（六）– 11/15（日）</b></span><span><b>10:00–18:00</b>　17:30 停止入場</span><span>華山文創園區　<b>北側綠地 B 區（荷花池旁）</b></span></div>
+        <p style="color:var(--ink-soft);max-width:38rem">融合健康、家庭、寵物與社區互動，打造一個全齡參與的幸福系戶外盛會。歡迎扶輪社友寶尊眷及所有民眾參與。</p>
+        <p style="font-family:var(--font-display);font-size:1.15rem">健康從家庭開始，幸福由你我同行。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="#family-play" data-scroll="family-play">怎麼參加</a><a class="btn ghost" href="#expo" data-go="expo">順道逛情緒教育展</a></div>
+      </div>
+      <img src="img/poster-family.jpg" alt="健康家庭日海報">
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">三大亮點</p><h2>帶著家人和毛孩，玩一整天</h2></div>
+      <div class="hl">
+        <div class="card">
+          <h3>寵物競走大賽</h3>
+          <p>萌寵出動，超 Q 互動，留下可愛回憶。華山狗狗競速障礙大賽熱血徵召中！</p>
+          <ol class="rules"><li>主人全程牽繩</li><li>帶狗狗繞樹一圈</li><li>沿途挑戰美味零食障礙</li><li>最快完成就有禮物</li></ol>
+          <p class="who" style="font-size:.85rem;color:var(--ink-soft)">寵物廠商｜碩達豐</p>
+        </div>
+        <div class="card">
+          <h3>親子互動遊戲</h3>
+          <p>丟沙包、套圈圈、投籃高手⋯⋯等懷舊遊戲，叫我第一名！</p>
+          <div class="games"><span>丟沙包</span><span>套圈圈</span><span>投籃高手</span><span>眼明手快</span><span>弓箭手</span><span>釣魚</span><span>棒球九宮格</span><span>彈珠台</span><span>推酒瓶</span></div>
+        </div>
+        <div class="card">
+          <h3>特色園遊會</h3>
+          <p>多樣攤位，互動體驗，逛一天都精彩。美食小吃、飲料、寵物與民生用品，還有身心靈塔羅攤位。</p>
+          <p style="color:var(--ink-soft)">現場另有舞台節目，全天播放音樂。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">線上徵稿</p><h2>還沒到現場，就先一起玩</h2></div>
+      <div class="partners" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div class="card"><h3>寵物跟主人最像徵稿比賽</h3><p>投稿你與毛孩最像的照片或影片，作品將上傳臉書與 IG 粉專，按讚加分享數最高者即可得獎。</p></div>
+        <div class="card"><h3>貓咪照片比醜大賽</h3><p>扶輪社友限定。徵求你家最醜萌的瞬間！照片、影片都可以，按讚加分享最高，就有機會得獎。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="family-play">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">參加方式</p><h2>免費入場，用現金或遊戲券同樂</h2></div>
+      <div class="tickets">
+        <div class="ticket"><span>入場</span><b>免費</b><span>所有民眾都歡迎</span></div>
+        <div class="ticket"><span>遊戲券</span><b>500 元</b><span>可玩 6 次</span></div>
+        <div class="ticket"><span>遊戲券</span><b>1,000 元</b><span>可玩 13 次</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">現場配置</p><h2>32 個攤位，沿著草地一圈</h2><p>B 區草地約 1,600 平方公尺，位於華山電影館西北側至荷花池之間。</p></div>
+      <div class="tbl"><table>
+        <thead><tr><th>攤位編號</th><th>內容</th></tr></thead>
+        <tbody>
+          <tr><td>1–3</td><td>飲料攤位</td></tr>
+          <tr><td>4–13</td><td>遊戲互動攤位</td></tr>
+          <tr><td>14–18</td><td>寵物與民生用品</td></tr>
+          <tr><td>19</td><td>垃圾回收站</td></tr>
+          <tr><td>20–21</td><td>音響音控</td></tr>
+          <tr><td>22–26</td><td>生熟食攤位</td></tr>
+          <tr><td>27</td><td>醫療組</td></tr>
+          <tr><td>28–29</td><td>報到處</td></tr>
+          <tr><td>30–32</td><td>身心靈塔羅攤位</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="bridge">
+        <div class="txt">
+          <p class="eyebrow">公益</p>
+          <h2>活動結餘全額捐贈</h2>
+          <p>健康家庭日的結餘，將全額捐贈「台北少年觀護所收容人心理治療服務計畫」，讓迷途的孩子被好好接住。</p>
+          <a class="btn" href="#expo" data-go="expo" style="justify-self:start">在情緒教育展認識這個計畫 →</a>
+        </div>
+      </div>
+      <dl class="clubs" style="margin-top:32px">
+        <div><dt>主辦</dt><dd>草山社、源山社、敦化社、安和社、同德社、同慶社、美仁社、北投社、東昇社、同曜社</dd></div>
+        <div><dt>協辦</dt><dd>元宇宙社、八芝蘭社、天際社、同領社、白金社、璽愛社、東北社、文林社、仁愛社、天運社、士林社、東聖社、大仁社、星宇社、東林社、東區社、松仁社</dd></div>
+        <div><dt>聯絡窗口</dt><dd>大金社 IPP Winnie　www.winniemimichang.com</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>2026 健康幸福博覽會　國際扶輪 3522 地區</p>
+    <p>情緒教育展：西1館（A棟）｜健康家庭日：北側綠地 B 區（荷花池旁）｜11/14–15　10:00–18:00（17:30 停止入場）</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var views=['home','expo','family'];
+  function show(v,scrollId){
+    if(views.indexOf(v)<0)v='home';
+    views.forEach(function(n){document.getElementById('view-'+n).hidden=(n!==v)});
+    document.querySelectorAll('.tab').forEach(function(t){
+      if(t.getAttribute('data-go')===v)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current');
+    });
+    if(scrollId){var el=document.getElementById(scrollId);if(el){el.scrollIntoView();return}}
+    window.scrollTo(0,0);
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('[data-go]');
+    if(a){e.preventDefault();show(a.getAttribute('data-go'));try{history.replaceState(null,'','#'+a.getAttribute('data-go'))}catch(_){}return}
+    var s=e.target.closest('[data-scroll]');
+    if(s){e.preventDefault();var el=document.getElementById(s.getAttribute('data-scroll'));if(el)el.scrollIntoView({behavior:'smooth'})}
+  });
+  var h=(location.hash||'').replace('#','');
+  show(views.indexOf(h)>=0?h:'home');
+})();
+</script>
+
+</body>
+</html>

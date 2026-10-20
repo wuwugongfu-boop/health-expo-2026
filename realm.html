@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>情緒星球 ｜ 國度</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Serif TC","Songti TC",serif;-webkit-font-smoothing:antialiased;color:#e9e2cf;background:#05060c}
+.page-bg{position:fixed;inset:0;z-index:-2;background-size:cover;background-position:center;
+ filter:blur(8px) brightness(.42) saturate(.85);transform:scale(1.1)}
+.page-bg::after{content:"";position:absolute;inset:0}
+.realm-hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 30px}
+.realm-hero::before{content:"";position:absolute;inset:0;pointer-events:none}
+.glyph{font-size:40px;margin-bottom:18px;position:relative}
+.realm-hero h1{font-size:46px;letter-spacing:14px;font-weight:500;position:relative}
+.realm-hero .latin{font-size:13px;letter-spacing:7px;margin:12px 0 28px}
+.realm-hero .myth{max-width:480px;font-size:15px;line-height:2.4;position:relative}
+.realm-hero .myth p+p{margin-top:18px}
+.realm-hero em{font-style:normal}
+.kwbar{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.kwbar span{font-size:12px;letter-spacing:2px;border-radius:14px;padding:5px 14px}
+.scroll{margin-top:40px;font-size:12px;letter-spacing:4px;opacity:.85;animation:fl 2.4s ease-in-out infinite;position:relative}
+@keyframes fl{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(8px);opacity:1}}
+.section-label{text-align:center;padding:60px 0 34px;font-size:14px;letter-spacing:6px;position:relative}
+.grid{display:grid;gap:18px;padding:0 24px 60px;max-width:1280px;margin:0 auto;grid-template-columns:1fr}
+@media(min-width:680px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:3/4;
+ box-shadow:0 10px 30px rgba(0,0,0,.5);transition:transform .4s,box-shadow .4s,border-color .4s}
+.card-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s,filter .5s}
+.card-veil{position:absolute;inset:0;transition:opacity .4s}
+.card-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:22px 20px;text-align:center}
+.cname{font-size:23px;letter-spacing:5px;color:#fff;font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,.85);transition:all .4s}
+.csub{font-size:11.5px;letter-spacing:1px;margin-top:7px;text-shadow:0 2px 8px rgba(0,0,0,.9)}
+.kwrow{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px;max-height:0;opacity:0;overflow:hidden;transition:max-height .45s ease,opacity .4s ease,margin .4s}
+.kw{font-size:11px;letter-spacing:1px;border-radius:12px;padding:3px 10px}
+.cquote{font-size:12.5px;line-height:1.9;letter-spacing:.5px;max-height:0;opacity:0;overflow:hidden;transition:max-height .5s ease,opacity .4s ease,margin .4s}
+.card:hover,.card:focus-visible,.card.open{transform:translateY(-6px)}
+.card:hover .card-img,.card:focus-visible .card-img,.card.open .card-img{transform:scale(1.08);filter:brightness(.78)}
+.card:hover .kwrow,.card:focus-visible .kwrow,.card.open .kwrow{max-height:90px;opacity:1;margin-bottom:12px}
+.card:hover .cquote,.card:focus-visible .cquote,.card.open .cquote{max-height:200px;opacity:1;margin-bottom:6px}
+.foot{text-align:center;padding:40px 30px 70px;position:relative}
+.foot .back{display:inline-block;font-size:13px;letter-spacing:3px;border-radius:24px;padding:12px 28px;text-decoration:none;cursor:pointer;transition:all .3s}
+.foot p{margin-top:24px;font-size:12px;letter-spacing:2px}
+
+/* 各國度配色 */
+body.fire{background:#0a0402}
+body.fire .page-bg::after{background:rgba(10,4,2,.55)}
+body.fire .realm-hero::before{background:radial-gradient(60% 45% at 50% 24%,rgba(180,60,30,.45),transparent 70%)}
+body.fire h1{color:#ffe0b0;text-shadow:0 0 30px rgba(255,120,50,.6)} body.fire .latin{color:#e0905a}
+body.fire .myth{color:#e8c8b0} body.fire em{color:#ffb878}
+body.fire .kwbar span{color:#ffb878;border:1px solid rgba(225,150,70,.4)} body.fire .scroll{color:#e0905a}
+body.fire .section-label{color:#e0905a}
+body.fire .card{border:1px solid rgba(225,150,70,.2)}
+body.fire .card-veil{background:linear-gradient(to bottom,rgba(10,4,2,.25) 0%,transparent 30%,transparent 45%,rgba(10,4,2,.75) 80%,rgba(10,4,2,.95) 100%)}
+body.fire .cname{text-shadow:0 0 18px rgba(255,120,50,.6),0 2px 10px rgba(0,0,0,.85)}
+body.fire .csub{color:#f0c098} body.fire .kw{color:#f0c8a0;border:1px solid rgba(230,150,80,.4);background:rgba(40,14,6,.5)} body.fire .cquote{color:#e8c0a0}
+body.fire .card:hover,body.fire .card.open{border-color:rgba(255,180,100,.7);box-shadow:0 18px 44px rgba(200,80,30,.4)}
+body.fire .card:hover .cname,body.fire .card.open .cname{text-shadow:0 0 28px rgba(255,150,70,.95),0 0 50px rgba(255,100,40,.5)}
+body.fire .foot .back{color:#ffb878;border:1px solid rgba(225,150,70,.5)} body.fire .foot .back:hover{background:rgba(230,150,70,.15)} body.fire .foot p{color:#9a7058}
+
+body.moon{background:#04060f}
+body.moon .page-bg::after{background:rgba(4,6,15,.55)}
+body.moon .realm-hero::before{background:radial-gradient(60% 45% at 50% 30%,rgba(40,60,120,.5),transparent 70%)}
+body.moon h1{color:#e6ecfb;text-shadow:0 0 30px rgba(130,170,255,.6)} body.moon .latin{color:#8da7d8}
+body.moon .myth{color:#c6d2ea} body.moon em{color:#a9c4f5}
+body.moon .kwbar span{color:#a9c4f5;border:1px solid rgba(140,170,230,.4)} body.moon .scroll{color:#8da7d8}
+body.moon .section-label{color:#a9c4f5}
+body.moon .card{border:1px solid rgba(140,170,230,.2)}
+body.moon .card-veil{background:linear-gradient(to bottom,rgba(4,6,15,.25) 0%,transparent 30%,transparent 45%,rgba(4,6,15,.75) 80%,rgba(4,6,15,.95) 100%)}
+body.moon .cname{text-shadow:0 0 18px rgba(130,170,255,.6),0 2px 10px rgba(0,0,0,.85)}
+body.moon .csub{color:#aec4ec} body.moon .kw{color:#bcd0f0;border:1px solid rgba(150,180,240,.4);background:rgba(18,28,60,.5)} body.moon .cquote{color:#c0d0ec}
+body.moon .card:hover,body.moon .card.open{border-color:rgba(160,195,255,.7);box-shadow:0 18px 44px rgba(60,100,200,.4)}
+body.moon .card:hover .cname,body.moon .card.open .cname{text-shadow:0 0 28px rgba(160,195,255,.95),0 0 50px rgba(120,160,255,.5)}
+body.moon .foot .back{color:#a9c4f5;border:1px solid rgba(140,170,230,.5)} body.moon .foot .back:hover{background:rgba(140,170,230,.15)} body.moon .foot p{color:#6a7898}
+
+body.sea{background:#030a14}
+body.sea .page-bg::after{background:rgba(3,10,20,.55)}
+body.sea .realm-hero::before{background:radial-gradient(60% 45% at 50% 18%,rgba(40,90,130,.5),transparent 70%)}
+body.sea h1{color:#d6e8f8;text-shadow:0 0 30px rgba(80,150,210,.6)} body.sea .latin{color:#6f9ac0}
+body.sea .myth{color:#b8cce0} body.sea em{color:#7fb8e0}
+body.sea .kwbar span{color:#7fb8e0;border:1px solid rgba(90,150,200,.4)} body.sea .scroll{color:#6f9ac0}
+body.sea .section-label{color:#7fb8e0}
+body.sea .card{border:1px solid rgba(90,150,200,.2)}
+body.sea .card-veil{background:linear-gradient(to bottom,rgba(3,10,20,.25) 0%,transparent 30%,transparent 45%,rgba(3,10,20,.75) 80%,rgba(3,10,20,.95) 100%)}
+body.sea .cname{text-shadow:0 0 18px rgba(80,150,210,.6),0 2px 10px rgba(0,0,0,.85)}
+body.sea .csub{color:#a8c4e0} body.sea .kw{color:#a8c8e8;border:1px solid rgba(100,160,210,.4);background:rgba(10,30,55,.5)} body.sea .cquote{color:#b0c8e4}
+body.sea .card:hover,body.sea .card.open{border-color:rgba(110,180,230,.7);box-shadow:0 18px 44px rgba(40,110,180,.4)}
+body.sea .card:hover .cname,body.sea .card.open .cname{text-shadow:0 0 28px rgba(110,180,230,.95),0 0 50px rgba(70,140,210,.5)}
+body.sea .foot .back{color:#7fb8e0;border:1px solid rgba(90,150,200,.5)} body.sea .foot .back:hover{background:rgba(90,150,200,.15)} body.sea .foot p{color:#5a7290}
+
+body.light{background:#1a1308}
+body.light .page-bg{filter:blur(8px) brightness(.55) saturate(1)}
+body.light .page-bg::after{background:rgba(40,30,12,.5)}
+body.light .realm-hero::before{background:radial-gradient(60% 45% at 50% 22%,rgba(255,225,150,.5),transparent 70%)}
+body.light h1{color:#fff5dc;text-shadow:0 0 36px rgba(255,210,120,.85)} body.light .latin{color:#f0d28a}
+body.light .myth{color:#f4e6c4;text-shadow:0 1px 8px rgba(40,28,8,.6)} body.light em{color:#ffe6a0}
+body.light .kwbar span{color:#ffe6a0;border:1px solid rgba(240,200,120,.5)} body.light .scroll{color:#f0d28a}
+body.light .section-label{color:#f0d28a}
+body.light .card{border:1px solid rgba(240,200,120,.3)}
+body.light .card-veil{background:linear-gradient(to bottom,rgba(30,20,6,.15) 0%,transparent 28%,transparent 42%,rgba(30,20,6,.7) 78%,rgba(24,16,4,.92) 100%)}
+body.light .cname{text-shadow:0 0 18px rgba(255,210,120,.7),0 2px 10px rgba(0,0,0,.85)}
+body.light .csub{color:#f4dca8} body.light .kw{color:#f4dca8;border:1px solid rgba(240,200,120,.45);background:rgba(50,36,12,.55)} body.light .cquote{color:#f0dcb0}
+body.light .card:hover,body.light .card.open{border-color:rgba(255,225,150,.85);box-shadow:0 18px 44px rgba(220,170,60,.4)}
+body.light .card:hover .cname,body.light .card.open .cname{text-shadow:0 0 28px rgba(255,225,150,.95),0 0 50px rgba(255,200,100,.6)}
+body.light .foot .back{color:#ffe6a0;border:1px solid rgba(240,200,120,.6)} body.light .foot .back:hover{background:rgba(240,200,120,.18)} body.light .foot p{color:#b09868}
+</style></head><body>
+<div class="page-bg" id="pageBg"></div>
+<header class="realm-hero">
+  <div class="glyph" id="glyph"></div>
+  <h1 id="rname"></h1>
+  <div class="latin" id="rlatin"></div>
+  <div class="myth" id="rmyth"></div>
+  <div class="kwbar" id="rkw"></div>
+  <div class="scroll">向 下 認 識 六 種 靈 魂 ⌄</div>
+</header>
+<div class="section-label" id="seclabel"></div>
+<div class="grid" id="grid"></div>
+<footer class="foot">
+  <a class="back" href="planet.html">← 回到神話大陸</a>
+  <a class="back" href="index.html#expo" style="margin-left:10px">回到情緒教育展</a>
+  <p>情緒星球 ｜ 2026 健康幸福博覽會・情緒教育展</p>
+</footer>
+
+<script src="config.js"></script>
+<script>
+// 從網址讀國度
+const params=new URLSearchParams(location.search);
+const key=params.get('r')||'fire';
+const data=CONFIG.realms[key]||CONFIG.realms.fire;
+document.body.className=key;
+document.title='情緒星球 ｜ '+data.name.replace(/ /g,'');
+
+// 背景圖：用該國度第一個角色的 bg
+document.getElementById('pageBg').style.backgroundImage=`url(${IMG_BASE}assets/${key}/bg.jpg)`;
+
+document.getElementById('glyph').textContent=data.glyph;
+document.getElementById('rname').textContent=data.name;
+document.getElementById('rlatin').textContent=data.latin;
+document.getElementById('rmyth').innerHTML=data.myth.map(p=>`<p>${p}</p>`).join('');
+document.getElementById('rkw').innerHTML=data.keywords.map(k=>`<span>${k}</span>`).join('');
+document.getElementById('seclabel').textContent=`— ${data.name.replace(/ /g,'')} ・ 六 種 靈 魂 —`;
+
+document.getElementById('grid').innerHTML=data.characters.map(c=>`
+  <article class="card" tabindex="0">
+    <div class="card-img" style="background-image:url(${IMG_BASE}${c.img})"></div>
+    <div class="card-veil"></div>
+    <div class="card-content">
+      <div class="cname">${c.name}</div>
+      <div class="csub">${c.sub}</div>
+      <div class="kwrow">${c.kw.map(k=>`<span class="kw">${k}</span>`).join('')}</div>
+      <div class="cquote">${c.quote}</div>
+    </div>
+  </article>`).join('');
+
+// 手機點擊展開
+const isTouch=('ontouchstart'in window)||navigator.maxTouchPoints>0;
+if(isTouch){document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('click',()=>{const w=card.classList.contains('open');
+   document.querySelectorAll('.card').forEach(c=>c.classList.remove('open'));
+   if(!w)card.classList.add('open');});});}
+</script></body></html>

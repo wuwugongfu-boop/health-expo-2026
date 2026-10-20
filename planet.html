@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>情緒星球 ｜ 神話大陸</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Serif TC","Songti TC",serif;background:#05060c;color:#e9e2cf;
+ min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+.hd{text-align:center;margin-bottom:14px}
+.hd h1{font-size:25px;letter-spacing:8px;color:#e8dcb4;font-weight:500;text-shadow:0 0 20px rgba(200,165,75,.4)}
+.hd p{font-size:12px;letter-spacing:3px;color:#8a8068;margin-top:7px}
+.map{position:relative;width:100%;max-width:760px;aspect-ratio:1402/1122;border-radius:12px;
+ overflow:hidden;box-shadow:0 16px 50px rgba(0,0,0,.6);user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+.base{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:filter .5s ease;z-index:1}
+.map.active .base{filter:blur(5px) brightness(.4) saturate(.65)}
+.realm{position:absolute;height:auto;z-index:3;opacity:0;pointer-events:auto;cursor:pointer;
+ transition:opacity .5s ease,transform .5s ease,filter .5s ease}
+.map.active .realm.hot{opacity:1;transform:scale(1.05);z-index:6}
+.rlabel{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);text-align:center;width:90%;
+ pointer-events:none;opacity:0;transition:opacity .4s;z-index:12}
+.rlabel.on{opacity:1}
+.rlabel .n{font-size:32px;letter-spacing:9px;color:#fff;font-weight:500;text-shadow:0 2px 24px rgba(0,0,0,.95)}
+.rlabel .t{font-size:14px;letter-spacing:3px;color:rgba(255,255,255,.92);margin-top:6px;text-shadow:0 2px 12px rgba(0,0,0,.95)}
+.enter-btn{display:inline-block;margin-top:18px;font-size:15px;letter-spacing:3px;color:#1a1208;
+ background:linear-gradient(135deg,#f0d79a,#caa24a);border:none;border-radius:26px;padding:13px 30px;
+ cursor:pointer;font-family:inherit;pointer-events:auto;font-weight:500;box-shadow:0 6px 20px rgba(202,162,74,.5);
+ opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.rlabel.on .enter-btn{opacity:1;transform:translateY(0)}
+.hint-tap{display:block;margin-top:10px;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.6)}
+.hit{position:absolute;inset:0;z-index:9}
+.tip{margin-top:16px;font-size:12px;color:#6a6450;letter-spacing:2px;text-align:center;line-height:1.8}
+/* 測驗引導按鈕 */
+.quiz-cta{margin-top:26px;text-align:center;display:none}
+.quiz-cta.show{display:block}
+.quiz-cta .q-text{font-size:13px;color:#9a8c68;letter-spacing:2px;margin-bottom:12px}
+.quiz-cta .q-btn{display:inline-block;font-size:15px;letter-spacing:3px;color:#1a1208;
+ background:linear-gradient(135deg,#f0d79a,#caa24a);border-radius:26px;padding:13px 32px;
+ text-decoration:none;font-weight:500;box-shadow:0 6px 20px rgba(202,162,74,.45);
+ transition:transform .25s,box-shadow .25s}
+.quiz-cta .q-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(202,162,74,.6)}
+/* 展場平面圖按鈕 */
+.floorplan{position:fixed;top:18px;right:18px;z-index:30;font-size:13px;letter-spacing:2px;
+ color:#e8dcb4;background:rgba(20,16,8,.7);border:1px solid rgba(202,162,74,.5);border-radius:22px;
+ padding:9px 18px;text-decoration:none;backdrop-filter:blur(6px);transition:all .3s;display:none}
+.floorplan:hover{background:rgba(202,162,74,.2);border-color:#e8dcb4}
+.floorplan.show{display:inline-block}
+</style></head><body>
+
+<a class="floorplan show" href="index.html#expo">← 回到情緒教育展</a>
+
+<div class="hd"><h1 id="homeTitle">情 緒 星 球</h1><p id="homeSub">THE MYTHIC CONTINENT</p></div>
+<div class="map" id="map">
+  <img class="base" data-src="assets/map/base.jpg" alt="神話大陸">
+  <img class="realm r-moon"  id="R-moon"  data-src="assets/map/moon.png"  style="left:11%;top:6%;width:33%">
+  <img class="realm r-fire"  id="R-fire"  data-src="assets/map/fire.png"  style="left:50%;top:4%;width:38%">
+  <img class="realm r-sea"   id="R-sea"   data-src="assets/map/sea.png"   style="left:4%;top:42%;width:44%">
+  <img class="realm r-light" id="R-light" data-src="assets/map/light.png" style="left:48%;top:44%;width:46%">
+  <div class="rlabel" id="rlabel">
+    <div class="n" id="rn"></div><div class="t" id="rt"></div>
+    <button class="enter-btn" id="enterBtn">進入此國度 →</button>
+    <span class="hint-tap" id="hintTap">點按鈕進入 ・ 點其他國度可換選</span>
+  </div>
+  <div class="hit" id="hit"></div>
+</div>
+<div class="tip" id="tip"></div>
+
+<div class="quiz-cta" id="quizCta">
+  <div class="q-text" id="quizText"></div>
+  <a class="q-btn" id="quizBtn" target="_blank" rel="noopener"></a>
+</div>
+
+<script src="config.js"></script>
+<script>
+document.querySelectorAll("[data-src]").forEach(i=>{i.src=IMG_BASE+i.dataset.src;});
+// 套用首頁設定
+document.getElementById('homeTitle').textContent=CONFIG.home.title;
+document.getElementById('homeSub').textContent=CONFIG.home.subtitle;
+// 測驗引導按鈕：有填網址才顯示
+const quiz=document.getElementById('quizCta');
+if(CONFIG.home.quizUrl && CONFIG.home.quizUrl.trim()!==''){
+  document.getElementById('quizBtn').href=CONFIG.home.quizUrl;
+  document.getElementById('quizText').textContent=CONFIG.home.quizText||'還不知道自己是哪一型？';
+  document.getElementById('quizBtn').textContent=CONFIG.home.quizButton||'開始測驗 →';
+  quiz.classList.add('show');
+}
+
+
+const INFO={};
+['moon','fire','sea','light'].forEach(k=>INFO[k]=[CONFIG.realms[k].name.replace(/ /g,''),CONFIG.realms[k].latin]);
+const PRI=["light","sea","fire","moon"];
+const PAGES={moon:'realm.html?r=moon',fire:'realm.html?r=fire',sea:'realm.html?r=sea',light:'realm.html?r=light'};
+const map=document.getElementById('map'),hit=document.getElementById('hit');
+const lbl=document.getElementById('rlabel'),rn=document.getElementById('rn'),rt=document.getElementById('rt');
+const enterBtn=document.getElementById('enterBtn'),hintTap=document.getElementById('hintTap');
+const R={};['moon','fire','sea','light'].forEach(k=>R[k]=document.getElementById('R-'+k));
+const isTouch=('ontouchstart'in window)||navigator.maxTouchPoints>0;
+document.getElementById('tip').innerHTML=isTouch?'點國度 → 浮起預覽，再點「進入」按鈕確認進入':'滑鼠移到陸地 → 該國度浮起發光；點擊直接進入';
+if(!isTouch){enterBtn.style.display='none';hintTap.style.display='none';}
+
+const off={};
+PRI.forEach(k=>{const im=new Image();im.src=R[k].src;im.onload=()=>{
+ const c=document.createElement('canvas');const sc=200/im.width;c.width=200;c.height=Math.round(im.height*sc);
+ const x=c.getContext('2d');x.drawImage(im,0,0,c.width,c.height);off[k]={x,w:c.width,h:c.height};};});
+function keyAt(cx,cy){const mr=map.getBoundingClientRect();
+ for(const k of PRI){const rr=R[k].getBoundingClientRect();
+  const lx=(cx*mr.width+mr.left-rr.left)/rr.width,ly=(cy*mr.height+mr.top-rr.top)/rr.height;
+  if(lx<0||ly<0||lx>=1||ly>=1)continue;const o=off[k]||{x:{getImageData(){throw 0}},w:1,h:1};
+  let a=255;try{a=o.x.getImageData(Math.floor(lx*o.w),Math.floor(ly*o.h),1,1).data[3];}catch(e){const dx=lx-.5,dy=ly-.5;a=(dx*dx+dy*dy<.16)?255:0;}if(a>40)return k;}
+ return null;}
+let cur=null,selected=null;
+function setHot(k){if(k===cur)return;cur=k;
+ Object.values(R).forEach(r=>r.classList.remove('hot'));
+ if(k){map.classList.add('active');R[k].classList.add('hot');
+  rn.textContent=INFO[k][0];rt.textContent=INFO[k][1];lbl.classList.add('on');
+ }else{map.classList.remove('active');lbl.classList.remove('on');}}
+function enterRealm(k){window.location.href=PAGES[k];}
+if(isTouch){
+ // 進入按鈕：用 touchend 直接觸發，並阻止事件穿透到感應層
+ const goEnter=ev=>{ev.preventDefault();ev.stopPropagation();if(selected)enterRealm(selected);};
+ enterBtn.addEventListener('touchend',goEnter);
+ enterBtn.addEventListener('click',goEnter);
+ // 感應層：記錄起點，手指移動太多算滑動不觸發；輕點才選國度
+ let sx=0,sy=0,moved=false;
+ hit.addEventListener('touchstart',e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;moved=false;},{passive:true});
+ hit.addEventListener('touchmove',e=>{const t=e.touches[0];
+  if(Math.abs(t.clientX-sx)>12||Math.abs(t.clientY-sy)>12)moved=true;},{passive:true});
+ hit.addEventListener('touchend',e=>{
+  if(moved)return; // 滑動就不算點選
+  const t=e.changedTouches[0];const r=hit.getBoundingClientRect();
+  const k=keyAt((t.clientX-r.left)/r.width,(t.clientY-r.top)/r.height);
+  if(k){setHot(k);selected=k;}else{setHot(null);selected=null;}});
+}else{
+ hit.addEventListener('mousemove',e=>{const r=hit.getBoundingClientRect();
+  setHot(keyAt((e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height));});
+ hit.addEventListener('mouseleave',()=>setHot(null));
+ hit.addEventListener('click',e=>{const r=hit.getBoundingClientRect();
+  const k=keyAt((e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height);if(k)enterRealm(k);});
+}
+</script></body></html>
