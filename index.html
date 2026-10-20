@@ -247,7 +247,15 @@ body{background-color:var(--night);background-image:
 /* 冰山劇場：紙張拼貼 */
 .paper{--pp:#f6efe3;--pi:#2a3554;--pb:#3b5f8f;--pr:#b4483a;background:var(--pp);color:var(--pi);border-radius:20px;padding:28px clamp(16px,3vw,36px);
  box-shadow:0 20px 50px #0007}
-.paper .credit{font-size:.85rem;color:#6b6252;margin-bottom:18px}
+.paper .credit{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-bottom:22px}
+.paper .credit img{height:34px;width:auto}
+.paper .credit .x{font-size:1.3rem;color:#6b6252}
+.paper .credit .when{font-size:.88rem;color:#6b6252;margin-left:auto}
+.wl{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.wl li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.wl span{font-family:var(--font-display);color:var(--candy-teal);font-size:1.05rem;line-height:1.6}
+.wl b{font-weight:700;color:var(--ink)}
+.wl p{color:var(--ink-soft);font-size:.92rem;line-height:1.65}
 .ice-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
 @media (max-width:900px){.ice-grid{grid-template-columns:1fr}}
 .ice-grid p{font-size:.95rem;line-height:1.9}
@@ -440,7 +448,13 @@ body{background-color:var(--night);background-image:
           <p class="who">第三站｜Wake Up Lab 沉浸式情緒策展</p>
           <h3>看見自己，也看見彼此</h3>
           <img src="img/beans.jpg" alt="Wake Up Lab 情緒咖啡豆角色" style="border-radius:12px;background:#fff">
-          <ul><li><b>是什麼塑造今天的你</b>　拿起紅線，牽起你的故事與關係</li><li><b>你可以是任何樣子</b>　投下一顆咖啡豆</li><li><b>VR 情緒體驗</b>　約 3 分鐘，坐著走進熟悉的日常</li><li><b>情緒處方籤</b>　為現在的自己，開一張處方</li><li><b>原來你是這樣想</b>　親子互動，交換彼此的答案</li></ul>
+          <ol class="wl">
+            <li><span>01</span><div><b>是什麼塑造今天的你</b><p>牽起一條紅線，探索那些悄悄影響你的故事與關係。</p></div></li>
+            <li><span>02</span><div><b>你可以是任何樣子</b><p>投下一顆咖啡豆，為此刻的自己，留下一個位置。</p></div></li>
+            <li><span>03</span><div><b>VR 情緒體驗</b><p>戴上 VR，走進熟悉的日常情境，看看不同選擇會帶來什麼感受。</p></div></li>
+            <li><span>04</span><div><b>情緒處方籤</b><p>如果心情也需要被照顧，你會為今天的自己開出什麼處方？</p></div></li>
+            <li><span>05</span><div><b>原來你是這樣想</b><p>同一個問題，不同的答案。和家人交換想法，發現彼此不曾說出口的心聲。</p></div></li>
+          </ol>
         </div>
         <div class="card">
           <p class="who">第五站｜Inside Yoga Taipei 與講師群</p>
@@ -473,7 +487,7 @@ body{background-color:var(--night);background-image:
   <section>
     <div class="wrap">
       <div class="paper">
-        <p class="credit">Wake Up Lab 情緒體驗設計團隊 × 凌晨工作室 原創互動劇場　｜　11/15（日）舞台演出</p>
+        <div class="credit"><img src="img/logo-wakeup.png" alt="Wake Up Lab 情緒體驗設計團隊"><span class="x">×</span><img src="img/logo-lingchen.png" alt="凌晨工作室"><span class="when">原創互動劇場｜11/15（日）舞台演出</span></div>
         <div class="ice-grid">
           <div class="ice-l">
             <span class="tape">我們想透過這齣戲說什麼？</span>
