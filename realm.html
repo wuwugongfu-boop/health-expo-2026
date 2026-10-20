@@ -143,7 +143,7 @@ document.getElementById('seclabel').textContent=`— ${data.name.replace(/ /g,''
 
 document.getElementById('grid').innerHTML=data.characters.map(c=>`
   <article class="card" tabindex="0">
-    <div class="card-img" style="background-image:url(${IMG_BASE}${c.img})"></div>
+    <div class="card-img" style="background-image:url(${c.img.startsWith('assets/')?IMG_BASE:''}${c.img})"></div>
     <div class="card-veil"></div>
     <div class="card-content">
       <div class="cname">${c.name}</div>
