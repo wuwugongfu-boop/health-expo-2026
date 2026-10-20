@@ -300,6 +300,19 @@ body{background-color:var(--night);background-image:
 .flegend b{width:30px;height:30px;border-radius:50%;background:var(--c);color:#14183d;display:grid;place-items:center;font-family:var(--font-display)}
 .flegend strong{font-weight:700}
 .flegend p{color:var(--ink-soft);font-size:.9rem;line-height:1.6}
+
+.cards-box{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:center;background:color-mix(in srgb,#1b2462 78%,transparent);border:2px solid #ffffff22;border-radius:24px;padding:24px}
+@media (max-width:820px){.cards-box{grid-template-columns:1fr}}
+.cards-box>img{width:100%;max-width:420px;border-radius:16px;margin:0 auto;box-shadow:0 12px 30px #0006}
+.cards-txt{display:grid;gap:14px}
+.cards-txt h2{font-size:clamp(1.6rem,3.2vw,2.2rem)}
+.cards-txt>p{color:var(--ink-soft)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.steps b{width:32px;height:32px;border-radius:50%;background:var(--candy-pink);color:#14183d;display:grid;place-items:center;font-family:var(--font-display)}
+.steps strong{font-weight:700}
+.steps p{color:var(--ink-soft);font-size:.93rem;line-height:1.65}
+.cards-txt .note{font-family:var(--font-display);color:var(--candy-yellow)!important}
 </style>
 
 </head>
@@ -443,7 +456,7 @@ body{background-color:var(--night);background-image:
       <ol class="flegend">
         <li style="--c:var(--candy-pink)"><b>入</b><div><strong>入口・測驗區</strong><p>右上角入口進場，先掃描 QR Code 做 16 題人格測驗。</p></div></li>
         <li style="--c:var(--candy-pink)"><b>1</b><div><strong>降落｜情緒星球迴廊</strong><p>整段彎曲迴廊是第一區，認識四個國度與 24 位居民。</p></div></li>
-        <li style="--c:var(--candy-pink)"><b>★</b><div><strong>角色卡任務</strong><p>迴廊盡頭，挑一張角色卡，送給自己或想陪伴的人。</p></div></li>
+        <li style="--c:var(--candy-pink)"><b>★</b><div><strong>角色卡任務</strong><p>迴廊盡頭，領取你的實體角色卡，也挑幾張送給在乎的人。</p></div></li>
         <li style="--c:var(--candy-violet)"><b>2</b><div><strong>聽見｜情緒留聲機</strong><p>上方區域，忠孝扶青社的電話亭、黑膠故事牆與互動桌。</p></div></li>
         <li style="--c:var(--candy-teal)"><b>3</b><div><strong>看見｜看見自己，也看見彼此</strong><p>下方區域，Wake Up Lab 的紅線牆、咖啡豆投票與 VR 體驗。</p></div></li>
         <li style="--c:var(--candy-orange)"><b>4</b><div><strong>留下｜拍照區・少觀所計畫</strong><p>左上方拍照牆留下此刻；下方是美仁社少觀所青少年心理療癒計畫。</p></div></li>
@@ -463,7 +476,28 @@ body{background-color:var(--night);background-image:
         <article class="realm"><img src="img/light.jpg" alt="光之國度展牆"><div class="txt"><h3 style="color:var(--candy-yellow)">光之國度</h3><p class="kw">純白之境・希望　連結　治癒　光明</p><p>相信再黑的夜也會有黎明，常常是替大家打氣的那個人。你不需要永遠發光，偶爾暗下來，也仍然是你。</p><div class="chips"><span>晨光旅人</span><span>希望播種者</span><span>雲端築夢師</span><span>靈魂連結者</span><span>純白治癒者</span><span>黎明覺醒者</span><a class="btn ghost" style="justify-self:start" href="realm.html?r=light">認識六位居民 →</a></div></div></article>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px"><a class="btn" href="planet.html">進入神話大陸地圖 →</a><a class="btn ghost" href="https://emotion-dna--wuwugongfu.replit.app/" target="_blank" rel="noopener">開始人格測驗</a></div>
-      <p style="margin-top:20px;color:var(--ink-soft)">展場內有「角色卡任務」：每走完一站，就可以多挑一張角色卡，送給自己，也送給你想陪伴的人。</p>
+      <p style="margin-top:20px;color:var(--ink-soft)">做完測驗，記得到迴廊盡頭的「角色卡任務」牆，領取屬於你的實體角色卡。<a href="#expo-cards" data-scroll="expo-cards">看怎麼領 →</a></p>
+    </div>
+  </section>
+
+  <section id="expo-cards">
+    <div class="wrap">
+      <div class="cards-box">
+        <img src="img/card-wall.jpg" alt="角色卡任務牆">
+        <div class="cards-txt">
+          <p class="eyebrow">迴廊盡頭｜角色卡任務</p>
+          <h2>把你的角色，帶回家</h2>
+          <p>24 位神話大陸居民，每一位都印成了實體角色卡。角色卡是送給你的禮物，不用集點、不用蓋章，大方挑，也大方送。</p>
+          <ol class="steps">
+            <li><b>1</b><div><strong>先完成測驗</strong><p>掃描入口的 QR Code，用 16 個問題找到此刻的你，再到角色卡牆領取自己的那一張。</p></div></li>
+            <li><b>2</b><div><strong>挑一張想成為的你</strong><p>有沒有哪位居民，是你羨慕或嚮往的樣子？也帶它回家。</p></div></li>
+            <li><b>3</b><div><strong>送一張給在乎的人</strong><p>想起家人、朋友像哪一位？在卡片背面寫一句話，送給他。</p></div></li>
+            <li><b>4</b><div><strong>離開前，再測一次</strong><p>上完瑜珈或聽完講座，看看今天結束時的你，是不是降落在不同的國度。</p></div></li>
+          </ol>
+          <p class="note">你的星球會移動。下次再來，可能會遇見另一位居民，那也是你。</p>
+          <a class="btn" href="https://emotion-dna--wuwugongfu.replit.app/" target="_blank" rel="noopener" style="justify-self:start">現在就做測驗 →</a>
+        </div>
+      </div>
     </div>
   </section>
 
