@@ -245,37 +245,38 @@ body{background-color:var(--night);background-image:
 .kstc h3{font-size:1.2rem}
 .kstc p{color:var(--ink-soft);font-size:.95rem}
 /* 冰山劇場：紙張拼貼 */
-.paper{--pp:#f3eadb;--pi:#2a3554;--pb:#3b5f8f;--pr:#b4483a;background:var(--pp);color:var(--pi);border-radius:20px;padding:28px clamp(16px,3vw,36px);
- background-image:radial-gradient(#0000000a 1px,transparent 1px);background-size:6px 6px;box-shadow:0 20px 50px #0007}
+.paper{--pp:#f6efe3;--pi:#2a3554;--pb:#3b5f8f;--pr:#b4483a;background:var(--pp);color:var(--pi);border-radius:20px;padding:28px clamp(16px,3vw,36px);
+ box-shadow:0 20px 50px #0007}
 .paper .credit{font-size:.85rem;color:#6b6252;margin-bottom:18px}
 .ice-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
 @media (max-width:900px){.ice-grid{grid-template-columns:1fr}}
 .ice-grid p{font-size:.95rem;line-height:1.9}
 .ice-l,.ice-m,.ice-r{display:grid;gap:12px;align-content:start}
 .tape{justify-self:start;background:#e6d2ad;padding:4px 14px;font-family:var(--font-display);transform:rotate(-2deg);box-shadow:0 2px 0 #0001}
-.ice-title{width:100%;max-width:340px;mix-blend-mode:multiply}
+.ice-title{width:100%;max-width:300px}
 .ice-lead{font-family:var(--font-display);font-size:1.25rem!important;color:var(--pb)}
 .pics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .pics img{width:100%;aspect-ratio:4/3;object-fit:cover;border:6px solid #fff;box-shadow:0 4px 10px #0003;transform:rotate(-2deg)}
 .pics img+img{transform:rotate(2deg)}
-.banner{background:var(--pb);color:#fff;font-family:var(--font-display);font-size:1.5rem!important;line-height:1.4!important;padding:12px 18px;border-radius:6px;transform:rotate(-2deg);justify-self:start}
-.berg{display:grid;grid-template-columns:42% 1fr;gap:10px;align-items:start}
-.berg>img{width:100%;mix-blend-mode:multiply;border-radius:10px}
-.layers{display:grid;gap:14px}
-.layers div{display:grid;gap:2px;position:relative}
+.banner{background:var(--pb);color:#fff;font-family:var(--font-display);font-size:1.25rem!important;line-height:1.4!important;padding:10px 18px;border-radius:8px;justify-self:center;text-align:center}
+.berg{display:grid;gap:14px}
+.berg-img{width:62%;max-width:240px;margin:0 auto}
+.layers{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.layers li{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:center}
+.layers li>img{width:52px;height:52px;object-fit:contain}
+.layers div{display:grid;gap:2px}
 .lv{justify-self:start;background:var(--pb);color:#fff;font-size:.8rem;padding:1px 10px;border-radius:999px}
 .lv.deep{background:var(--pr)}
 .layers b{font-family:var(--font-display);font-weight:400}
-.layers small{font-size:.85rem;color:#5a5446}
-.bean{width:48px;position:absolute;right:-6px;top:-10px;mix-blend-mode:multiply}
-.ice-note{font-family:var(--font-display);color:var(--pb)}
+.layers small{font-size:.88rem;color:#5a5446;line-height:1.6}
 .qs{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.qs li{background:#efe0c4;border-radius:10px;padding:10px 14px;display:flex;gap:12px;align-items:center;font-family:var(--font-display)}
+.qs li{background:#efe0c4;border-radius:12px;padding:12px 14px;display:flex;gap:12px;align-items:center;font-family:var(--font-display)}
 .qs span{flex:none;width:34px;height:34px;border-radius:50%;background:var(--pr);color:#fff;display:grid;place-items:center;font-size:.9rem}
 .qs li:nth-child(2) span{background:var(--pb)}
-.hand{font-family:var(--font-display);background:#fff8;border-radius:10px;padding:10px 14px}
-.bean.big{position:static;width:90px;justify-self:end}
-.ice-foot{margin-top:20px;text-align:center;font-family:var(--font-display);font-size:1.15rem;color:#fff;background:var(--pi);border-radius:10px;padding:12px}
+.hand{font-family:var(--font-display);background:#fffaf0;border-radius:12px;padding:12px 16px}
+.ice-foot{margin-top:24px;display:flex;align-items:center;justify-content:center;gap:18px;background:var(--pi);border-radius:14px;padding:14px 18px}
+.ice-foot p{font-family:var(--font-display);font-size:1.1rem!important;color:#fff;text-align:center;line-height:1.7!important}
+.ice-foot img{width:56px;height:56px;object-fit:contain;flex:none}
 </style>
 
 </head>
@@ -476,24 +477,21 @@ body{background-color:var(--night);background-image:
         <div class="ice-grid">
           <div class="ice-l">
             <span class="tape">我們想透過這齣戲說什麼？</span>
-            <img class="ice-title" src="img/ice-title.jpg" alt="走出，冰山之下">
+            <img class="ice-title" src="img/ice-title.png" alt="走出，冰山之下">
             <p class="ice-lead">當我們不急著判斷，<br>才有機會看見彼此。</p>
-            <p>一座故障的電梯，讓一個準備離家的女孩，和一位急著接女兒的媽媽，暫時停了下來。</p>
-            <p>從爭執到傾聽，她們開始發現：自己說出口的，並不是心裡的全部。</p>
-            <p>這齣戲想邀請你，看見情緒背後的心事，也為自己的感受，留下一點說話的空間。</p>
+            <p>一座故障的電梯，讓一個準備離家的女孩，和一位急著接女兒的媽媽，暫時停了下來。從爭執到傾聽，她們開始發現：自己說出口的，並不是心裡的全部。</p>
             <div class="pics"><img src="img/ice-photo1.jpg" alt="劇照"><img src="img/ice-photo3.jpg" alt="演出現場"></div>
           </div>
           <div class="ice-m">
-            <p class="banner">你看見的，<br>不一定是全部。</p>
+            <p class="banner">你看見的，不一定是全部。</p>
             <div class="berg">
-              <img src="img/ice-berg.jpg" alt="冰山">
-              <div class="layers">
-                <div><span class="lv">水面上</span><b>我們看見的反應</b><small>提高音量、反覆追問、不再回應、轉身離開。</small></div>
-                <div><span class="lv">水面下</span><b>可能還有的感受</b><small>害怕、委屈、孤單、疲憊、思念。</small><img class="bean" src="img/bean-blue.jpg" alt=""></div>
-                <div><span class="lv deep">更深處</span><b>可能在意的需要</b><small>被理解、被尊重、有選擇的空間，或只是希望有人願意陪一下。</small><img class="bean" src="img/bean-green.jpg" alt=""></div>
-              </div>
+              <img class="berg-img" src="img/ice-berg.png" alt="冰山">
+              <ul class="layers">
+                <li><img src="img/bean-orange.png" alt=""><div><span class="lv">水面上</span><b>我們看見的反應</b><small>提高音量、反覆追問、不再回應、轉身離開。</small></div></li>
+                <li><img src="img/bean-blue.png" alt=""><div><span class="lv">水面下</span><b>可能還有的感受</b><small>害怕、委屈、孤單、疲憊、思念。</small></div></li>
+                <li><img src="img/bean-green.png" alt=""><div><span class="lv deep">更深處</span><b>可能在意的需要</b><small>被理解、被尊重、有選擇的空間，或只是希望有人陪一下。</small></div></li>
+              </ul>
             </div>
-            <p class="ice-note">這些不是替別人下的結論。真正的理解，還需要聽對方說。</p>
           </div>
           <div class="ice-r">
             <span class="tape">把故事帶回自己</span>
@@ -503,12 +501,10 @@ body{background-color:var(--night);background-image:
               <li><span>02</span>有哪一句話，你還沒準備好說？</li>
               <li><span>03</span>下一次對話，你想試著怎麼開始？</li>
             </ol>
-            <p>不必現在回答，也不必告訴任何人。但也許，你可以從今天開始，先練習對自己誠實一點。</p>
             <p class="hand">理解，可以從一句話開始：<br>「你希望我先聽你說，還是一起想辦法？」</p>
-            <img class="bean big" src="img/bean-red.jpg" alt="">
           </div>
         </div>
-        <p class="ice-foot">每一種情緒，都值得被看見。每一個人，也都可以有自己的界線。</p>
+        <div class="ice-foot"><img src="img/bean-yellow.png" alt=""><p>每一種情緒，都值得被看見。<br>每一個人，也都可以有自己的界線。</p><img src="img/bean-red.png" alt=""></div>
       </div>
     </div>
   </section>
