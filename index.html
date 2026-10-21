@@ -316,6 +316,20 @@ body{background-color:var(--night);background-image:
 .steps .tag.gift{border-color:var(--c);color:var(--c)}
 .steps strong{color:var(--c)}
 .cards-txt .note{font-family:var(--font-display);color:var(--candy-yellow)!important}
+
+.dr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;align-items:center;background:color-mix(in srgb,#1b2462 78%,transparent);border:2px solid #ffffff22;border-radius:24px;padding:24px}
+@media (max-width:820px){.dr{grid-template-columns:1fr}}
+.dr-photo{width:100%;border-radius:18px;box-shadow:0 12px 30px #0006}
+.dr-txt{display:grid;gap:12px}
+.dr-txt h2{font-size:clamp(1.8rem,3.6vw,2.4rem)}
+.dr-logo{display:inline-flex;justify-self:start;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:6px 16px 6px 10px}
+.dr-logo img{height:38px;width:auto}
+.dr-logo span{color:#6b4a5a;font-weight:700}
+.dr-lead{font-family:var(--font-display);font-size:1.25rem;color:var(--candy-yellow)}
+.dr-txt>p:not(.dr-lead):not(.eyebrow){color:var(--ink-soft)}
+.dr-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.dr-list li{display:grid;grid-template-columns:3em 1fr;gap:10px;color:var(--ink-soft);font-size:.93rem;line-height:1.65}
+.dr-list b{color:var(--candy-teal);font-weight:700}
 </style>
 
 </head>
@@ -586,6 +600,27 @@ body{background-color:var(--night);background-image:
           </div>
         </div>
         <div class="ice-foot"><img src="img/bean-yellow.png" alt=""><p>每一種情緒，都值得被看見。<br>每一個人，也都可以有自己的界線。</p><img src="img/bean-red.png" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expo-drliu">
+    <div class="wrap">
+      <div class="dr">
+        <img class="dr-photo" src="img/dr-liu.jpg" alt="劉宗憲醫師">
+        <div class="dr-txt">
+          <p class="eyebrow">11/14（六）14:00｜專題講座</p>
+          <h2>劉宗憲 醫師</h2>
+          <div class="dr-logo"><img src="img/logo-drliu.png" alt="劉宗憲身心診所"><span>院長</span></div>
+          <p class="dr-lead">28 年精神醫學中心歷練，演講幽默風趣，精彩可期！</p>
+          <p>前臺北市立聯合醫院松德院區主任，老年精神與社區精神醫學專家。擅長用貼近生活的方式談失眠、焦慮與情緒，讓聽的人笑著笑著，就懂得怎麼照顧自己的心。</p>
+          <ul class="dr-list">
+            <li><b>專長</b>失眠與睡眠障礙、自律神經失調、焦慮、憂鬱、恐慌、老年健忘與情緒、職場與人際適應</li>
+            <li><b>資歷</b>中華民國精神科專科醫師、老年精神科專科醫師、臺灣精神醫學會副秘書長、台灣老年精神醫學會監事</li>
+            <li><b>肯定</b>臺北市立聯合醫院優良醫師獎；常受東森、台視、TVBS 等媒體採訪，並於各大報撰文</li>
+          </ul>
+          <a class="btn ghost" style="justify-self:start" href="https://xn--bfrq4stndt8bluax47pmrg.com/" target="_blank" rel="noopener">認識劉宗憲身心診所 →</a>
+        </div>
       </div>
     </div>
   </section>
