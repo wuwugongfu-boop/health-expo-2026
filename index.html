@@ -309,9 +309,12 @@ body{background-color:var(--night);background-image:
 .cards-txt>p{color:var(--ink-soft)}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .steps li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
-.steps b{width:32px;height:32px;border-radius:50%;background:var(--candy-pink);color:#14183d;display:grid;place-items:center;font-family:var(--font-display)}
+.steps b{width:32px;height:32px;border-radius:50%;background:var(--c);color:#14183d;display:grid;place-items:center;font-family:var(--font-display)}
 .steps strong{font-weight:700}
-.steps p{color:var(--ink-soft);font-size:.93rem;line-height:1.65}
+.steps p{color:var(--ink-soft);font-size:.93rem;line-height:1.65;display:flex;gap:8px;align-items:baseline}
+.steps .tag{flex:none;font-size:.75rem;padding:0 8px;border-radius:999px;border:1px solid var(--ink-soft);color:var(--ink-soft)}
+.steps .tag.gift{border-color:var(--c);color:var(--c)}
+.steps strong{color:var(--c)}
 .cards-txt .note{font-family:var(--font-display);color:var(--candy-yellow)!important}
 </style>
 
@@ -487,13 +490,8 @@ body{background-color:var(--night);background-image:
         <div class="cards-txt">
           <p class="eyebrow">迴廊盡頭｜角色卡任務</p>
           <h2>把你的角色，帶回家</h2>
-          <p>24 位神話大陸居民，每一位都印成了實體角色卡。角色卡是送給你的禮物，不用集點、不用蓋章，大方挑，也大方送。</p>
-          <ol class="steps">
-            <li><b>1</b><div><strong>先完成測驗</strong><p>掃描入口的 QR Code，用 16 個問題找到此刻的你，再到角色卡牆領取自己的那一張。</p></div></li>
-            <li><b>2</b><div><strong>挑一張想成為的你</strong><p>有沒有哪位居民，是你羨慕或嚮往的樣子？也帶它回家。</p></div></li>
-            <li><b>3</b><div><strong>送一張給在乎的人</strong><p>想起家人、朋友像哪一位？在卡片背面寫一句話，送給他。</p></div></li>
-            <li><b>4</b><div><strong>離開前，再測一次</strong><p>上完瑜珈或聽完講座，看看今天結束時的你，是不是降落在不同的國度。</p></div></li>
-          </ol>
+          <p>24 位神話大陸居民，每一位都印成了實體角色卡。角色卡是送給你的禮物，不用集點、不用蓋章。每走完一站、完成一個小任務，就多一個挑卡的理由，可以留給自己，也可以送給別人。</p>
+          <ol class="steps"><li style="--c:var(--candy-pink)"><b>一</b><div><strong>降落｜情緒星球</strong><p><span class="tag">任務</span>完成 16 題測驗，出示結果頁</p><p><span class="tag gift">可領</span>你自己這次測出來的角色卡</p></div></li><li style="--c:var(--candy-violet)"><b>二</b><div><strong>聽見｜扶青情緒留聲機</strong><p><span class="tag">任務</span>在電話亭說或聽一段故事，或寫一張匿名情緒小卡</p><p><span class="tag gift">可領</span>選一張「你想成為的角色」</p></div></li><li style="--c:var(--candy-teal)"><b>三</b><div><strong>看見｜Wake Up Lab</strong><p><span class="tag">任務</span>完成一項互動裝置或 VR 體驗</p><p><span class="tag gift">可領</span>選一張「你覺得像家人或朋友」的角色，帶回去送他</p></div></li><li style="--c:var(--candy-orange)"><b>四</b><div><strong>留下｜拍照牆</strong><p><span class="tag">任務</span>拍照上傳並標記 #情緒星球，或寫一句話給今天的自己</p><p><span class="tag gift">可領</span>再選一張，送給你想陪伴的人</p></div></li><li style="--c:var(--candy-yellow)"><b>五</b><div><strong>動起來｜瑜珈與講座</strong><p><span class="tag">任務</span>參加任一場瑜珈、講座或劇場</p><p><span class="tag gift">可領</span>領一張「今天結束時的我」：可以再測一次，看看有沒有不一樣</p></div></li></ol>
           <p class="note">你的星球會移動。下次再來，可能會遇見另一位居民，那也是你。</p>
           <a class="btn" href="https://emotion-dna--wuwugongfu.replit.app/" target="_blank" rel="noopener" style="justify-self:start">現在就做測驗 →</a>
         </div>
