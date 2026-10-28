@@ -330,6 +330,15 @@ body{background-color:var(--night);background-image:
 .dr-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .dr-list li{display:grid;grid-template-columns:3em 1fr;gap:10px;color:var(--ink-soft);font-size:.93rem;line-height:1.65}
 .dr-list b{color:var(--candy-teal);font-weight:700}
+
+.jg{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr)}
+@media (max-width:820px){.jg{grid-template-columns:1fr}}
+.jg-side{display:grid;gap:14px;justify-items:center}
+.jg-logo{background:#fff;border-radius:20px;padding:22px;width:100%;max-width:300px;display:grid;place-items:center;min-height:140px}
+.jg-logo img{max-height:120px;width:auto}
+.jg-logo b{font-size:2rem;color:#1b2259}
+.jg-times{display:grid;gap:6px;justify-items:center}
+.jg-times span{background:var(--candy-yellow);color:#14183d;font-weight:700;border-radius:999px;padding:4px 14px;font-size:.92rem;font-variant-numeric:tabular-nums}
 </style>
 
 </head>
@@ -569,7 +578,7 @@ body{background-color:var(--night);background-image:
         <div class="day"><h3>11 月 14 日（六）</h3><ol>
           <li><time>10:00</time><span class="k tag-play">開幕式</span></li>
           <li><time>11:00–12:00</time><span class="k tag-yoga">瑜珈</span></li>
-          <li><time>13:00–14:00</time><span class="k tag-talk">傑立高<small>傑立高 JellyGO｜東杰生醫</small></span></li>
+          <li><time>13:00–14:00</time><span class="k tag-talk">傑立高講座<small>小腹變小，腸腸運動心情好！｜GCMA</small></span></li>
           <li><time>14:00–15:00</time><span class="k tag-talk">劉宗憲醫師<small>專題講座</small></span></li>
           <li><time>15:10–17:30</time><span class="k tag-yoga">瑜珈<small>連續兩場</small></span></li>
         </ol></div>
@@ -578,7 +587,7 @@ body{background-color:var(--night);background-image:
           <li><time>10:00–11:00</time><span class="k tag-yoga">瑜珈</span></li>
           <li><time>11:00–12:00</time><span class="k tag-play">情緒互動劇場<small>《走出，冰山之下》</small></span></li>
           <li><time>13:00–14:00</time><span class="k tag-play">情緒互動劇場<small>《走出，冰山之下》</small></span></li>
-          <li><time>14:00–15:00</time><span class="k tag-talk">傑立高<small>傑立高 JellyGO｜東杰生醫</small></span></li>
+          <li><time>14:00–15:00</time><span class="k tag-talk">傑立高講座<small>小腹變小，腸腸運動心情好！｜GCMA</small></span></li>
           <li><time>15:10–17:30</time><span class="k tag-yoga">瑜珈<small>連續兩場</small></span></li>
         </ol></div>
       </div>
@@ -601,6 +610,24 @@ body{background-color:var(--night);background-image:
             <li><b>肯定</b>臺北市立聯合醫院優良醫師獎；常受東森、台視、TVBS 等媒體採訪，並於各大報撰文</li>
           </ul>
           <a class="btn ghost" style="justify-self:start" href="https://xn--bfrq4stndt8bluax47pmrg.com/" target="_blank" rel="noopener">認識劉宗憲身心診所 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expo-jellygo">
+    <div class="wrap">
+      <div class="dr jg">
+        <div class="jg-side">
+          <div class="jg-logo"><img src="https://gcma.tw/wp-content/uploads/2026/07/snimgawuGJf.webp" alt="GCMA 台灣健康促進成長曲線管理協會" onerror="this.replaceWith(Object.assign(document.createElement('b'),{textContent:'GCMA'}))"></div>
+          <div class="jg-times"><span>11/14（六）13:00–14:00</span><span>11/15（日）14:00–15:00</span></div>
+        </div>
+        <div class="dr-txt">
+          <p class="eyebrow">專題講座｜傑立高 JellyGO</p>
+          <h2>小腹變小，腸腸運動心情好！！</h2>
+          <p class="dr-lead">GCMA 台灣健康促進成長曲線管理協會</p>
+          <p>快樂是每個人的權利。想要同時擁有健康和快樂的方法嗎？很簡單，就是「運動」。一起跟著 GCMA 的 CoKo 教練體驗瘦小腹的秘訣，還有如何從運動和腸道保養來保持好心情。</p>
+          <a class="btn ghost" style="justify-self:start" href="https://gcma.tw/" target="_blank" rel="noopener">認識 GCMA 協會 →</a>
         </div>
       </div>
     </div>
